@@ -34,15 +34,43 @@ public:
 	*/
 	Piece(const char color, const char type, const Square& pos);
 
+	/*
+	* ctor of class Piece
+	*/
 	virtual ~Piece();
 
 	void move(const Square& newPos);
 
 	std::string pieceInfo() const;
 
+//getters:
+
+	/*
+	* getter of color
+	* 
+	* @return the color of the piece
+	*/
 	char getColor() const;
+
+	/*
+	* getter of type
+	* 
+	* @return type of the piece
+	*/
 	char getType() const;
-	Square& getPosition() const;
+
+	/*
+	* getter of piece square
+	* 
+	* @return square of piece
+	*/
+	const Square& getPosition() const;
+
+	/*
+	* getter of possible moves
+	* 
+	* @return a vector with all posible squares
+	*/
 	std::vector<Square> getMoves() const;
 
 
@@ -61,6 +89,8 @@ protected:
 
 
 private:
+
+//setters:
 
 	/*
 	* set the color of the piece

@@ -8,6 +8,32 @@ Piece::Piece(const char color, const char type, const Square& pos)
 	this->setPosition(pos);
 }
 
+Piece::~Piece()
+{
+	this->clearVector();
+	this->_possibleMoves.clear();
+}
+
+char Piece::getColor() const
+{
+	return this->_color;
+}
+
+char Piece::getType() const
+{
+	return this->_type;
+}
+
+const Square& Piece::getPosition() const
+{
+	return this->_position;
+}
+
+std::vector<Square> Piece::getMoves() const
+{
+	return this->_possibleMoves;
+}
+
 void Piece::setColor(const char color)
 {
 	if (color != WHITE || color != BLACK || color != EMPTY_SQUARE)
