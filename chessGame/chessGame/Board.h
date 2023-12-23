@@ -5,8 +5,6 @@
 #include "Square.h"
 #include "Piece.h"
 
-constexpr int BOARD_SIZE = 8;
-
 class Piece;
 
 class Board
