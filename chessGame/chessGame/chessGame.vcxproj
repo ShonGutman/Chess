@@ -137,7 +137,7 @@
     <ClCompile Include="PieceException.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Queen.cpp" />
-    <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="Rook.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -154,7 +154,7 @@
     <ClInclude Include="Pipe.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Queen.h" />
-    <ClInclude Include="Rock.h" />
+    <ClInclude Include="Rook.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

@@ -4,6 +4,11 @@
 #include <iostream>
 #include "Square.h"
 #include "Piece.h"
+#include "King.h"
+#include "Queen.h"
+#include "Rook.h"
+#include "Bishop.h"
+#include "Pawn.h"
 
 class Piece;
 

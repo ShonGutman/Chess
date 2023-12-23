@@ -42,7 +42,7 @@
     <ClCompile Include="King.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rock.cpp">
+    <ClCompile Include="Rook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bishop.cpp">
@@ -89,7 +89,7 @@
     <ClInclude Include="King.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rock.h">
+    <ClInclude Include="Rook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bishop.h">
