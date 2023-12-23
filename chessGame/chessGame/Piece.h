@@ -4,6 +4,19 @@
 #include <vector>
 #include "Square.h"
 #include "Board.h"
+#include "PieceException.h"
+
+#define BLACK 'b'
+#define WHITE 'W'
+
+#define KING 'k'
+#define QUEEN 'q'
+#define ROOK 'r'
+#define KNIGHT 'n'
+#define BISHOP 'b'
+#define PAWN 'p'
+
+#define EMPTY_SQUARE '#'
 
 class Board;
 

@@ -5,6 +5,7 @@ in order to read and write information from and to the Backend
 */
 
 #include "Pipe.h"
+#include "Game.h"
 #include <iostream>
 #include <thread>
 
@@ -16,7 +17,6 @@ using std::string;
 void main()
 {
 	srand(time_t(NULL));
-
 	
 	//Pipe p;
 	//bool isConnect = p.connect();

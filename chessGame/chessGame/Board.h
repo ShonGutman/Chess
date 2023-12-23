@@ -12,21 +12,26 @@ class Piece;
 class Board
 {
 public:
+	//constructors
 	/*
-	* CTOR of class Board
+	* constructor for Board
 	*/
 	Board();
 
+	//destructor
 	/*
-	* DTOR of class Board
+	* destructor for Board. frees memory allocated for Board.
 	*/
 	~Board();
+
+	void setBoard();
 
 	/*
 	* move a piece to another Square
 	* 
-	* @param PieceLocation - Square of piece to move
-	* @param locationToMove - Square to move the piece to 
+	* @param squFrom - Square of piece to move
+	* @param squTo - Square to move the piece to
+	* @param myColor - the color of the player
 	* @return 0 - valid move
 	* @return 1 - valid move (made opposing king in check)
 	* @return 2 - invalid move (no piece of mine in PieceLocation)
@@ -37,13 +42,10 @@ public:
 	* @return 7 - invalid move (PieceLocation = locationToMove)
 	* @return 8 - valid move (checkmate)
 	*/
-	int move(const Square& PieceLocation, const Square& locationToMove, const char myColor);
-	bool isEmptySquare(const Square& checkSquare) const;
-
-	void setBoard();
-
-	Square& findKingSquare(const char kingColor) const;
-	bool isCheckingKing(const Square& checkingPieceLocation, const Square& kingLocation) const;
+	int move(const Square& squFrom, const Square& squTo, const char myColor);
+	bool isEmptySquare(const Square& squ) const;
+	Square& findKing(const char kingColor) const;
+	bool isPieceCheckKing(const Piece& piece, const char kingColor) const;
 
 private:
 	Piece* _chessBoard[BOARD_SIZE][BOARD_SIZE];

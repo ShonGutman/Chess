@@ -4,10 +4,11 @@
 
 class Player
 {
-public:
-	Player(char color);
+protected:
+	Player(char color, Board& _chessBoard);
 	~Player();
-	int Play(std::string move);
+	Board& getBoard() const;
+	int play(std::string move);
 
 private:
 	bool _isMyTurn;
