@@ -9,13 +9,12 @@ class Board;
 
 class Piece
 {
-
 public:
-	Piece(const char color, const char type, const Square& position);
+	Piece(const char color, const char type, const Square& pos);
 
 	virtual ~Piece();
 
-	void move(const Square& newPosition);
+	void move(const Square& newPos);
 
 	std::string pieceInfo() const;
 
@@ -29,7 +28,6 @@ public:
 	bool isLegalMove(const Square& moveTo) const;
 
 	virtual void setPossibleMoves(const Board& chessBoard) = 0;
-
 
 protected:
 	char _color;

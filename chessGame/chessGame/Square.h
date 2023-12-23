@@ -56,9 +56,7 @@ public:
 	*/
 	bool operator==(const Square& other) const;
 
-
 private:
-
 	int _x;
 	int _y;
 };
