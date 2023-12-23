@@ -14,10 +14,23 @@ using std::endl;
 using std::string;
 
 
-void main()
+int main()
 {
 	srand(time_t(NULL));
-	
+	try
+	{
+		Game chessGame;
+	}
+	catch (PieceException& e)
+	{
+		std::cerr << e.what();
+		return -1;
+	}
+	catch (...)
+	{
+		std::cerr << "It's ok, I don't understand chess or what you've done" << endl;
+		return -1;
+	}
 	//Pipe p;
 	//bool isConnect = p.connect();
 	//
@@ -76,4 +89,5 @@ void main()
 	//}
 
 	//p.close();
+	return 0;
 }

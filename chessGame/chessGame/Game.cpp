@@ -3,8 +3,8 @@
 Game::Game()
 {
 	Board chessBoard;
-	Player playerW(WHITE,chessBoard);
-	Player playerB(BLACK,chessBoard);
+	Player playerW(WHITE,&chessBoard);
+	Player playerB(BLACK,&chessBoard);
 }
 
 Game::~Game()

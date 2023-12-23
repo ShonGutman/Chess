@@ -5,13 +5,13 @@
 class Player
 {
 public:
-	Player(char color, Board& _chessBoard);
+	Player(char color, Board* chessBoard);
 	~Player();
 	Board& getBoard() const;
 	int play(std::string move);
 
 protected:
-	bool _isMyTurn;
 	char _color;
-	Board _chessBoard;
+	bool _isMyTurn;
+	Board* _chessBoard;
 };
