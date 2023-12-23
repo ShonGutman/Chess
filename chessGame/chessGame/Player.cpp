@@ -16,7 +16,7 @@ Player::Player(char color, Board* chessBoard)
 	}
 	else
 	{
-		throw PieceException();
+		throw PieceException("Can't create a colorfull player!");
 	}
 }
 
