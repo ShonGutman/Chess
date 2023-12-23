@@ -11,7 +11,6 @@ Piece::Piece(const char color, const char type, const Square& pos)
 Piece::~Piece()
 {
 	this->clearVector();
-	this->_possibleMoves.clear();
 }
 
 char Piece::getColor() const
@@ -32,6 +31,11 @@ const Square& Piece::getPosition() const
 std::vector<Square> Piece::getMoves() const
 {
 	return this->_possibleMoves;
+}
+
+void Piece::clearVector()
+{
+	this->_possibleMoves.clear();
 }
 
 void Piece::setColor(const char color)

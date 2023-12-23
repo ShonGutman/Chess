@@ -74,7 +74,11 @@ public:
 	std::vector<Square> getMoves() const;
 
 
-
+	/*
+	* clear all possible moves in piece
+	* 
+	* @return void
+	*/
 	void clearVector();
 	
 	bool isLegalMove(const Square& moveTo) const;
