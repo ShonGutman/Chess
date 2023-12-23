@@ -10,6 +10,6 @@ public:
 	int play(std::string move);
 
 private:
-	Player PlayerW;
-	Player PlayerB;
+	Player _playerW;
+	Player _playerB;
 };

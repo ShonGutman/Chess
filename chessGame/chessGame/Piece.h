@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include "Square.h"
 #include "Board.h"
 #include "PieceException.h"
