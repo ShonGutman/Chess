@@ -84,8 +84,7 @@ void Piece::setType(const char type)
 
 void Piece::setPosition(const Square& pos)
 {
-	if (pos.getX() >= BOARD_SIZE || pos.getX() < 0 || 
-		pos.getY() >= BOARD_SIZE || pos.getY() < 0)
+	if (Square::checkSquare(pos.getX(), pos.getY()))
 	{
 		throw PieceException("Position is illegal");
 	}

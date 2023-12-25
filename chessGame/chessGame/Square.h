@@ -70,6 +70,15 @@ public:
 	*/
 	bool operator==(const Square& other) const;
 
+	/*
+	* check if square is valid in a chess board
+	* 
+	* @param x - x value of board
+	* @param y - y value of board
+	* @return true if valid. false if not
+	*/
+	static bool checkSquare(const int x, const int y);
+
 private:
 	int _x;
 	int _y;
