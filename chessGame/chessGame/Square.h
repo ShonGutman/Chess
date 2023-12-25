@@ -12,6 +12,7 @@ public:
 	* constructor for Square.
 	* @param x,y coordinates of the Square.
 	*/
+	Square();
 	Square(const int x, const int y);
 
 	//destructor

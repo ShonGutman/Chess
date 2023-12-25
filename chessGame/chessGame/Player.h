@@ -5,6 +5,7 @@
 class Player
 {
 public:
+	Player();
 	Player(const char color, Board* chessBoard);
 	~Player();
 	Board& getBoard() const;

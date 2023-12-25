@@ -1,5 +1,11 @@
 #include "Square.h"
 
+Square::Square()
+{
+	_x = 0;
+	_y = 0;
+}
+
 Square::Square(const int x, const int y)
 {
 	if (x >= BOARD_SIZE || x < 0 || y >= BOARD_SIZE || y < 0)
@@ -22,4 +28,10 @@ int Square::getX() const
 int Square::getY() const
 {
 	return _y;
+}
+
+Square& Square::operator=(const Square& other)
+{
+	_x = other._x;
+	_y = other._y;
 }

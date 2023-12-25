@@ -1,5 +1,9 @@
 #include "Player.h"
 
+Player::Player()
+{
+}
+
 Player::Player(const char color, Board* chessBoard)
 {
 	if (color == WHITE)

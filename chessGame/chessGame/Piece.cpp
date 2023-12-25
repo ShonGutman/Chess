@@ -15,27 +15,27 @@ Piece::~Piece()
 
 char Piece::getColor() const
 {
-	return this->_color;
+	return _color;
 }
 
 char Piece::getType() const
 {
-	return this->_type;
+	return _type;
 }
 
 const Square& Piece::getPosition() const
 {
-	return this->_position;
+	return _position;
 }
 
 std::vector<Square> Piece::getMoves() const
 {
-	return this->_possibleMoves;
+	return _possibleMoves;
 }
 
 void Piece::clearVector()
 {
-	this->_possibleMoves.clear();
+	_possibleMoves.clear();
 }
 
 void Piece::setColor(const char color)
@@ -44,7 +44,7 @@ void Piece::setColor(const char color)
 	{
 		throw PieceException();
 	}
-	this->_color = color;
+	_color = color;
 }
 
 void Piece::setType(const char type)
@@ -54,7 +54,7 @@ void Piece::setType(const char type)
 	{
 		throw PieceException();
 	}
-	this->_type = type;
+	_type = type;
 }
 
 void Piece::setPosition(const Square& pos)
@@ -64,5 +64,5 @@ void Piece::setPosition(const Square& pos)
 	{
 		throw PieceException();
 	}
-	this->_position = pos;
+	_position = pos;
 }
