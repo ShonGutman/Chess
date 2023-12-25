@@ -10,6 +10,8 @@
 #include "Bishop.h"
 #include "Pawn.h"
 
+constexpr int INVALID_SQUARE = 5;
+
 class Piece;
 
 class Board

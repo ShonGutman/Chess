@@ -13,6 +13,19 @@ Piece::~Piece()
 	this->clearVector();
 }
 
+char Piece::pieceInfo() const
+{
+	if (this->_color == BLACK)
+	{
+		return tolower(this->_type);
+	}
+
+	else
+	{
+		return toupper(this->_type);
+	}
+}
+
 char Piece::getColor() const
 {
 	return _color;
@@ -36,6 +49,18 @@ std::vector<Square> Piece::getMoves() const
 void Piece::clearVector()
 {
 	_possibleMoves.clear();
+}
+
+bool Piece::isLegalMove(const Square& moveTo) const
+{
+	for (int i = 0; i < this->_possibleMoves.size(); i++)
+	{
+		if (moveTo == this->_possibleMoves[i])
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void Piece::setColor(const char color)

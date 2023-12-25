@@ -10,12 +10,12 @@
 #define BLACK 'b'
 #define WHITE 'W'
 
-#define KING 'k'
-#define QUEEN 'q'
-#define ROOK 'r'
-#define KNIGHT 'n'
-#define BISHOP 'b'
-#define PAWN 'p'
+#define KING 'K'
+#define QUEEN 'Q'
+#define ROOK 'R'
+#define KNIGHT 'N'
+#define BISHOP 'B'
+#define PAWN 'P'
 
 #define EMPTY_SQUARE '#'
 
@@ -41,7 +41,10 @@ public:
 
 	void move(const Square& newPos);
 
-	std::string pieceInfo() const;
+	/*
+	* return info about the piece
+	*/
+	char pieceInfo() const;
 
 //getters:
 
@@ -81,6 +84,12 @@ public:
 	*/
 	void clearVector();
 	
+	/*
+	* check if a move is in possible moves vector
+	* 
+	* @param moveTo - a square to check
+	* @return true if can move. false if not
+	*/
 	bool isLegalMove(const Square& moveTo) const;
 
 	virtual void setPossibleMoves(const Board& chessBoard) = 0;

@@ -22,14 +22,7 @@ Board::~Board()
 bool Board::isPieceCheckKing(const Piece& piece, const char kingColor) const
 {
 	Square kingSquare = findKing(kingColor);
-	for (int i = 0; i < piece.getMoves().size(); i++)
-	{
-		if (kingSquare == piece.getMoves()[i])
-		{
-			return true;
-		}
-	}
-	return false;
+	return piece.isLegalMove(kingSquare);
 }
 
 bool Board::isEmptySquare(const Square& squ) const
