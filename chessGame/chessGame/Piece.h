@@ -19,8 +19,6 @@
 
 #define EMPTY_SQUARE '#'
 
-constexpr int BOARD_SIZE = 8;
-
 class Board;
 
 class Piece

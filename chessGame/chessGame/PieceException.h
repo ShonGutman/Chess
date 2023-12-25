@@ -25,5 +25,5 @@ public:
 	virtual const char* what() const override;
 
 private:
-	std::string _errorMsg
+	std::string _errorMsg;
 };
