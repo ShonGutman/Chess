@@ -18,6 +18,9 @@ public:
 	*/
 	~Square();
 
+	int getX() const;
+	int getY() const;
+
 	//operators
 	/**
 	* assignment operator for Square.
@@ -55,9 +58,6 @@ public:
 	* @returns true\false Square are equals.
 	*/
 	bool operator==(const Square& other) const;
-
-	int getX() const;
-	int getY() const;
 
 private:
 	int _x;
