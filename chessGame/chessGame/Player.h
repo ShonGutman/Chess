@@ -5,7 +5,7 @@
 class Player
 {
 public:
-	Player(char color, Board* chessBoard);
+	Player(const char color, Board* chessBoard);
 	~Player();
 	Board& getBoard() const;
 	int play(std::string move);
