@@ -35,3 +35,30 @@ Square& Square::operator=(const Square& other)
 	_x = other._x;
 	_y = other._y;
 }
+
+Square Square::operator+(const Square& other) const
+{
+	return Square(this->_x + other._x, this->_y + other._y);
+}
+
+Square& Square::operator+=(const Square& other)
+{
+	*this = *this + other;
+	return *this;
+}
+
+Square Square::operator-(const Square& other) const
+{
+	return Square(this->_x - other._x, this->_y - other._y);
+}
+
+Square& Square::operator-=(const Square& other)
+{
+	*this = *this - other;
+	return *this;
+}
+
+bool Square::operator==(const Square& other) const
+{
+	return this->_x == other._x && this->_y == other._y;
+}

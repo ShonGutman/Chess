@@ -22,7 +22,14 @@ public:
 	*/
 	~Square();
 
+	/*
+	* getter of param x
+	*/
 	int getX() const;
+
+	/*
+	* getter of param y
+	*/
 	int getY() const;
 
 	//operators
