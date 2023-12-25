@@ -20,7 +20,7 @@ Player::Player(const char color, Board* chessBoard)
 	}
 	else
 	{
-
+		throw PieceException("Can't create a colorfull player!");
 	}
 }
 

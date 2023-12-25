@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "PieceException.h"
 
 constexpr int BOARD_SIZE = 8;
 
