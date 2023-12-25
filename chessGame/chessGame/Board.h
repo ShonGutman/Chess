@@ -46,10 +46,36 @@ public:
 	* @return 8 - valid move (checkmate)
 	*/
 	int move(const Square& squFrom, const Square& squTo, const char myColor);
-	bool isEmptySquare(const Square& squ) const;
-	Square& findKing(const char kingColor) const;
-	bool isPieceCheckKing(const Piece& piece, const char kingColor) const;
+
 
 private:
 	Piece* _chessBoard[BOARD_SIZE][BOARD_SIZE];
+
+
+	//helping methods:
+
+	/*
+	* check if squ is an empty square
+	*
+	* @param squ - a square to be checked
+	* @return true if empty. false if not
+	*/
+	bool isEmptySquare(const Square& squ) const;
+
+	/*
+	* find the square of a specific king
+	*
+	* @param kingColor - the color of the wanted king
+	* @return the king's square
+	*/
+	Square findKing(const char kingColor) const;
+
+	/*
+	* check if a certain piece is checking certain king
+	*
+	* @param piece - a piece to be checked
+	* @param kingColor - the color of the king
+	* @return true if check. false if not
+	*/
+	bool isPieceCheckKing(const Piece& piece, const char kingColor) const;
 };
