@@ -1,6 +1,10 @@
 #include "Player.h"
 
-Player::Player(char color, Board* chessBoard)
+Player::Player()
+{
+}
+
+Player::Player(const char color, Board* chessBoard)
 {
 	if (color == WHITE)
 	{
@@ -16,7 +20,7 @@ Player::Player(char color, Board* chessBoard)
 	}
 	else
 	{
-		throw PieceException("Can't create a colorfull player!");
+
 	}
 }
 

@@ -2,9 +2,9 @@
 
 Game::Game()
 {
-	Board chessBoard;
-	Player playerW(WHITE,&chessBoard);
-	Player playerB(BLACK,&chessBoard);
+	Board* chessBoard = new Board;
+	Player playerW(WHITE,chessBoard);
+	Player playerB(BLACK,chessBoard);
 }
 
 Game::~Game()

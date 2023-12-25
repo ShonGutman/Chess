@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+constexpr int BOARD_SIZE = 8;
+
 class Square
 {
 public:
@@ -10,6 +12,7 @@ public:
 	* constructor for Square.
 	* @param x,y coordinates of the Square.
 	*/
+	Square();
 	Square(const int x, const int y);
 
 	//destructor
@@ -17,6 +20,9 @@ public:
 	* destructor for Square. frees memory allocated for Square.
 	*/
 	~Square();
+
+	int getX() const;
+	int getY() const;
 
 	//operators
 	/**
@@ -55,9 +61,6 @@ public:
 	* @returns true\false Square are equals.
 	*/
 	bool operator==(const Square& other) const;
-
-	int getX() const;
-	int getY() const;
 
 private:
 	int _x;

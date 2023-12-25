@@ -21,14 +21,19 @@ int main()
 	{
 		Game chessGame;
 	}
+	catch (const string s)
+	{
+		std::cerr << "Error: " << s << endl;
+		return -1;
+	}
 	catch (PieceException& e)
 	{
-		std::cerr << e.what();
+		std::cerr << "Error: " << e.what() << endl;
 		return -1;
 	}
 	catch (...)
 	{
-		std::cerr << "It's ok, I don't understand chess or what you've done" << endl;
+		std::cerr << "Error: It's ok, I don't understand chess or what you've done" << endl;
 		return -1;
 	}
 	//Pipe p;
