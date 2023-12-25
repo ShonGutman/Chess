@@ -44,14 +44,13 @@ void Piece::setColor(const char color)
 	{
 		throw PieceException();
 	}
-
 	this->_color = color;
 }
 
 void Piece::setType(const char type)
 {
-	if (type != KING || type != QUEEN || type != ROOK || type != KNIGHT
-		|| type != BISHOP || type != PAWN || type != EMPTY_SQUARE)
+	if (type != KING || type != QUEEN || type != ROOK || type != KNIGHT|| 
+		type != BISHOP || type != PAWN || type != EMPTY_SQUARE)
 	{
 		throw PieceException();
 	}
@@ -60,15 +59,10 @@ void Piece::setType(const char type)
 
 void Piece::setPosition(const Square& pos)
 {
-	if (pos.getX() >= BOARD_SIZE || pos.getY() >= BOARD_SIZE)
+	if (pos.getX() >= BOARD_SIZE || pos.getX() < 0 || 
+		pos.getY() >= BOARD_SIZE || pos.getY() < 0)
 	{
 		throw PieceException();
 	}
-
-	if (pos.getX() < 0 || pos.getY() < 0)
-	{
-		throw PieceException();
-	}
-
 	this->_position = pos;
 }

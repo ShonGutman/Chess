@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+constexpr int BOARD_SIZE = 8;
+
 class Square
 {
 public:
