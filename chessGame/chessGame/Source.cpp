@@ -21,12 +21,7 @@ int main()
 	{
 		Game chessGame;
 	}
-	catch (const string s)
-	{
-		std::cerr << "Error: " << s << endl;
-		return -1;
-	}
-	catch (PieceException& e)
+	catch (GameException& e)
 	{
 		std::cerr << "Error: " << e.what() << endl;
 		return -1;

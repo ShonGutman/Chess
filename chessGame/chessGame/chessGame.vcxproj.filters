@@ -51,7 +51,7 @@
     <ClCompile Include="Queen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PieceException.cpp">
+    <ClCompile Include="GameException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -98,7 +98,7 @@
     <ClInclude Include="Queen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PieceException.h">
+    <ClInclude Include="GameException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">

@@ -44,5 +44,5 @@ Square Board::findKing(const char kingColor) const
 		}
 	}
 
-	throw PieceException("King was not found. maybe king doesn't exist.");
+	throw GameException("King was not found. maybe king doesn't exist.");
 }

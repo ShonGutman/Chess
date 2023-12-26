@@ -4,20 +4,20 @@
 #include <iostream>
 #include <string>
 
-class PieceException : public std::exception
+class GameException : public std::exception
 {
 public:
 	/*
-	* CTOR of class PieceException
+	* CTOR of class GameException
 	* 
 	* @param error - an error msg
 	*/
-	PieceException(const std::string error);
+	GameException(const std::string error);
 
 	/*
-	* DTOR of class PieceException
+	* DTOR of class GameException
 	*/
-	~PieceException();
+	~GameException();
 
 	/*
 	* override of func what() in Exception

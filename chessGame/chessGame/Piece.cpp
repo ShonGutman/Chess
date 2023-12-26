@@ -67,7 +67,7 @@ void Piece::setColor(const char color)
 {
 	if (color != WHITE || color != BLACK || color != EMPTY_SQUARE)
 	{
-		throw PieceException("Piece color is wrong");
+		throw GameException("Piece color is wrong!");
 	}
 	_color = color;
 }
@@ -77,7 +77,7 @@ void Piece::setType(const char type)
 	if (type != KING || type != QUEEN || type != ROOK || type != KNIGHT|| 
 		type != BISHOP || type != PAWN || type != EMPTY_SQUARE)
 	{
-		throw PieceException("Piece type is wrong");
+		throw GameException("Piece type is wrong!");
 	}
 	_type = type;
 }
@@ -86,7 +86,7 @@ void Piece::setPosition(const Square& pos)
 {
 	if (Square::checkSquare(pos.getX(), pos.getY()))
 	{
-		throw PieceException("Position is illegal");
+		throw GameException("Position is illegal!");
 	}
 	_position = pos;
 }

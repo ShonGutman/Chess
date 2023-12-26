@@ -2,6 +2,7 @@
 
 Player::Player()
 {
+	throw GameException("Can't create empty player!");
 }
 
 Player::Player(const char color, Board* chessBoard)
@@ -20,7 +21,7 @@ Player::Player(const char color, Board* chessBoard)
 	}
 	else
 	{
-		throw PieceException("Can't create a colorfull player!");
+		throw GameException("Can't create a colorfull player!");
 	}
 }
 

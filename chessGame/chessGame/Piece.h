@@ -5,7 +5,7 @@
 #include <string>
 #include "Square.h"
 #include "Board.h"
-#include "PieceException.h"
+#include "GameException.h"
 
 #define BLACK 'b'
 #define WHITE 'W'
