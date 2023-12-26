@@ -34,6 +34,23 @@ Board& Player::getBoard() const
 	// TODO: insert return statement here
 }
 
+bool Player::getTurn() const
+{
+	return _isMyTurn;
+}
+
+void Player::setTurn()
+{
+	if(_isMyTurn)
+	{
+		_isMyTurn = false;
+	}
+	else
+	{
+		_isMyTurn = true;
+	}
+}
+
 int Player::play(std::string move)
 {
 	return 0;

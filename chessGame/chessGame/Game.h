@@ -1,8 +1,9 @@
 #pragma once
 
+
 #include "Player.h"
 
-class Game : public Player
+class Game
 {
 public:
 	Game();
@@ -12,4 +13,5 @@ public:
 private:
 	Player _playerW;
 	Player _playerB;
+	Board* _chessBoard;
 };

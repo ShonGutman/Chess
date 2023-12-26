@@ -9,9 +9,11 @@ public:
 	Player(const char color, Board* chessBoard);
 	~Player();
 	Board& getBoard() const;
+	bool getTurn() const;
+	void setTurn();
 	int play(std::string move);
 
-protected:
+private:
 	char _color;
 	bool _isMyTurn;
 	Board* _chessBoard;

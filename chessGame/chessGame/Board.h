@@ -12,7 +12,17 @@
 #include "Pawn.h"
 #include "EmptyPiece.h"
 
-constexpr int INVALID_SQUARE = 5;
+enum CODES {
+	VALID_MOVE = 0,
+	VALID_CHECK_MOVE,
+	NO_PIECE_FROM,
+	EXIST_PIECE_TO,
+	PERSONAL_CHECK,
+	OUT_OF_BOARD,
+	ILIGAL_MOVE,
+	SAME_SQUARE,
+	CHECK_MATE
+};
 
 class Piece;
 
