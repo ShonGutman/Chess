@@ -53,5 +53,28 @@ void Player::setTurn()
 
 int Player::play(std::string move)
 {
-	return 0;
+	int pos[MOVE_STRING_LENGTH] = {0,0,0,0};
+	if (move.length() != MOVE_STRING_LENGTH)
+	{
+		throw GameException("Move string not in format!");
+	}
+	for (int i = 0; i < MOVE_STRING_LENGTH; i++)
+	{
+		char temp = move[i];
+		if (isalpha(temp))
+		{
+			
+		}
+		else if (isdigit(temp))
+		{
+			if(int(temp) >= int(0) && int(temp) <= int(9))
+			{
+
+			}
+		}
+		else
+		{
+			throw GameException("Weird squares in move string");
+		}
+	}
 }

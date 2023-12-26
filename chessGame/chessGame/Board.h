@@ -12,6 +12,7 @@
 #include "Pawn.h"
 #include "EmptyPiece.h"
 
+
 enum CODES {
 	VALID_MOVE = 0,
 	VALID_CHECK_MOVE,
@@ -19,7 +20,7 @@ enum CODES {
 	EXIST_PIECE_TO,
 	PERSONAL_CHECK,
 	OUT_OF_BOARD,
-	ILIGAL_MOVE,
+	ILLIGAL_MOVE,
 	SAME_SQUARE,
 	CHECK_MATE
 };

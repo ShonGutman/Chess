@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Board.h"
+#include <ctype.h>
+
+constexpr int MOVE_STRING_LENGTH = 4;
 
 class Player
 {
