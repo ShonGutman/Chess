@@ -8,12 +8,7 @@ Square::Square()
 
 Square::Square(const int x, const int y)
 {
-	if (Square::checkSquare(x, y))
-	{
-		throw GameException("Can't create a square out of board!");
-	}
-	_x = x;
-	_y = y;
+	this->setSquare(x,y);
 }
 
 Square::~Square()
@@ -28,6 +23,16 @@ int Square::getX() const
 int Square::getY() const
 {
 	return _y;
+}
+
+void Square::setSquare(const int x, const int y)
+{
+	if (!Square::checkSquare(x, y))
+	{
+		throw GameException("Can't create a square out of board!");
+	}
+	_x = x;
+	_y = y;
 }
 
 Square& Square::operator=(const Square& other)

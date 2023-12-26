@@ -32,6 +32,8 @@ public:
 	*/
 	int getY() const;
 
+	void setSquare(const int x, const int y);
+
 	//operators
 	/**
 	* assignment operator for Square.

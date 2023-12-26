@@ -53,7 +53,7 @@ void Player::setTurn()
 
 int Player::play(std::string move)
 {
-	int pos[MOVE_STRING_LENGTH] = {0,0,0,0};
+	int cord[MOVE_STRING_LENGTH] = {0,0,0,0};
 	if (move.length() != MOVE_STRING_LENGTH)
 	{
 		throw GameException("Move string not in format!");
@@ -63,18 +63,33 @@ int Player::play(std::string move)
 		char temp = move[i];
 		if (isalpha(temp))
 		{
-			
+			if (int(temp) >= int('a') && int(temp) <= int('h'))
+			{
+				cord[i] = int(temp) - int('a');
+			}
 		}
 		else if (isdigit(temp))
 		{
-			if(int(temp) >= int(0) && int(temp) <= int(9))
+			if (int(temp) >= int(0) && int(temp) <= int(BOARD_SIZE))
 			{
-
+				cord[i] = int(BOARD_SIZE) - int(temp);
 			}
 		}
 		else
 		{
-			throw GameException("Weird squares in move string");
+			return OUT_OF_BOARD;
 		}
 	}
+	Square squFrom;
+	Square squTo;
+	try
+	{
+		squFrom.setSquare(cord[0], cord[1]);
+		squTo.setSquare(cord[2], cord[3]);
+	}
+	catch (GameException& e)
+	{
+		return OUT_OF_BOARD;
+	}
+	return _chessBoard->Board::move(squFrom, squTo, _color);
 }
