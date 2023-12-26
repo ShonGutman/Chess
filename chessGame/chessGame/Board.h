@@ -8,7 +8,9 @@
 #include "Queen.h"
 #include "Rook.h"
 #include "Bishop.h"
+#include "Knight.h"
 #include "Pawn.h"
+#include "EmptyPiece.h"
 
 constexpr int INVALID_SQUARE = 5;
 
@@ -29,7 +31,7 @@ public:
 	*/
 	~Board();
 
-	void setBoard();
+	void setBoard(const std::string initGame);
 
 	/*
 	* move a piece to another Square
