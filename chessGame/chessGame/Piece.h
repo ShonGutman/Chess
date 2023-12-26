@@ -7,17 +7,22 @@
 #include "Board.h"
 #include "GameException.h"
 
-#define BLACK 'b'
-#define WHITE 'W'
+enum pieceColor
+{
+	BLACK = 'b',
+	WHITE = 'W'
+};
 
-#define KING 'K'
-#define QUEEN 'Q'
-#define ROOK 'R'
-#define KNIGHT 'N'
-#define BISHOP 'B'
-#define PAWN 'P'
-
-#define EMPTY_SQUARE '#'
+enum pieceType
+{
+	KING = 'K',
+	QUEEN = 'Q',
+	ROOK = 'R',
+	KNIGHT = 'N',
+	BISHOP = 'B',
+	PAWN = 'P',
+	EMPTY_SQUARE = '#'
+};
 
 class Board;
 
