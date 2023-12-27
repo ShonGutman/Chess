@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Piece.h"
-//IM IN PAIN
+
 class King : public Piece
 {
 public:
