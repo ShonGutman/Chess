@@ -69,8 +69,6 @@ public:
 	int move(const Square& squFrom, const Square& squTo, const char myColor);
 
 
-	void copyBoard(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
-
 
 private:
 	Piece* _chessBoard[BOARD_SIZE][BOARD_SIZE];

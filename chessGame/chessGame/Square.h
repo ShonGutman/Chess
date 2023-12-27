@@ -73,6 +73,11 @@ public:
 	*/
 	bool operator==(const Square& other) const;
 
+	void IncX();
+	void IncY();
+	void DecX();
+	void DecY();
+
 	/*
 	* check if square is valid in a chess board
 	* 
