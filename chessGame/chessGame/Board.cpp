@@ -182,6 +182,7 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 		}
 	}
 
+
 	this->setAllMoves();
 
 	//check if move check oponent king
