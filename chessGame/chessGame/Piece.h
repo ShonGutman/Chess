@@ -42,6 +42,11 @@ public:
 	*/
 	virtual ~Piece();
 
+	/*
+	* function moves piece to a given square
+	* 
+	* @param newPos - square to go to
+	*/
 	void move(const Square& newPos);
 
 	/*
