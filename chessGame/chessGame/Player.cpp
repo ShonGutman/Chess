@@ -91,5 +91,5 @@ int Player::play(std::string move)
 	{
 		return OUT_OF_BOARD;
 	}
-	return _chessBoard->Board::move(squFrom, squTo, _color);
+	return _chessBoard->move(squFrom, squTo, _color);
 }

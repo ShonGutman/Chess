@@ -95,12 +95,15 @@ public:
 	*/
 	bool isLegalMove(const Square& moveTo) const;
 
-	virtual void setPossibleMoves(const Board& chessBoard) = 0;
+	static bool isLegalMove(const Square& moveTo, std::vector<Square> possibleMoves);
+
+	virtual void setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
+	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) = 0;
 
 protected:
 	char _color;
 	char _type;
-	Square _position;
+	Square _pos;
 	std::vector<Square> _possibleMoves;
 
 

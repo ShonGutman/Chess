@@ -38,7 +38,7 @@ char Piece::getType() const
 
 const Square& Piece::getPosition() const
 {
-	return _position;
+	return _pos;
 }
 
 std::vector<Square> Piece::getMoves() const
@@ -53,14 +53,24 @@ void Piece::clearVector()
 
 bool Piece::isLegalMove(const Square& moveTo) const
 {
-	for (int i = 0; i < this->_possibleMoves.size(); i++)
+	return Piece::isLegalMove(moveTo, this->_possibleMoves);
+}
+
+bool Piece::isLegalMove(const Square& moveTo, std::vector<Square> possibleMoves)
+{
+	for (int i = 0; i < possibleMoves.size(); i++)
 	{
-		if (moveTo == this->_possibleMoves[i])
+		if (moveTo == possibleMoves[i])
 		{
 			return true;
 		}
 	}
 	return false;
+}
+
+void Piece::setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
+{
+	this->_possibleMoves = this->findNewPossibleMoves(chessBoard);
 }
 
 void Piece::setColor(const char color)
@@ -88,5 +98,5 @@ void Piece::setPosition(const Square& pos)
 	{
 		throw GameException("Position is illegal!");
 	}
-	_position = pos;
+	_pos = pos;
 }

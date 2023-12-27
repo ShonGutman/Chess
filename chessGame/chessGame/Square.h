@@ -15,6 +15,7 @@ public:
 	*/
 	Square();
 	Square(const int x, const int y);
+	Square(const Square& other);
 
 	//destructor
 	/**

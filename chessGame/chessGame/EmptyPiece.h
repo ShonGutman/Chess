@@ -5,7 +5,7 @@
 class EmptyPiece : public Piece
 {
 public:
-	EmptyPiece(Square& pos);
+	EmptyPiece(const Square& pos);
 	virtual ~EmptyPiece();
-	virtual void setPossibleMoves(const Board& chessBoard) override;
+	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) override;
 };

@@ -5,7 +5,7 @@
 class Bishop : public Piece
 {
 public:
-	Bishop(char color, Square& pos);
+	Bishop(char color, const Square& pos);
 	virtual ~Bishop();
-	virtual void setPossibleMoves(const Board& chessBoard) override;
+	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) override;
 };

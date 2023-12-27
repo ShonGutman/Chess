@@ -11,6 +11,11 @@ Square::Square(const int x, const int y)
 	this->setSquare(x,y);
 }
 
+Square::Square(const Square& other)
+{
+	this->setSquare(other.getX(),other.getY());
+}
+
 Square::~Square()
 {
 }

@@ -5,7 +5,7 @@
 class Queen : public Piece
 {
 public:
-    Queen(char color, Square& pos);
+    Queen(char color, const Square& pos);
     virtual ~Queen();
-    virtual void setPossibleMoves(const Board& chessBoard) override;
+    virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) override;
 };

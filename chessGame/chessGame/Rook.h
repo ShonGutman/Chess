@@ -5,7 +5,7 @@
 class Rook : public Piece
 {
 public:
-	Rook(char color, Square& pos);
+	Rook(char color, const Square& pos);
 	virtual ~Rook();
-	virtual void setPossibleMoves(const Board& chessBoard) override;
+	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) override;
 };

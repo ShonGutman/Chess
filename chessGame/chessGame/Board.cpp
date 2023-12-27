@@ -106,11 +106,145 @@ void Board::setBoard(const std::string initGame)
 	}
 }
 
-bool Board::isPieceCheckKing(const Piece& piece, const char kingColor) const
+bool Board::isPieceCheckKing(const std::vector<Square> possibleMoves, const char kingColor) const
 {
 	Square kingSquare = findKing(kingColor);
-	return piece.isLegalMove(kingSquare);
+	return Piece::isLegalMove(kingSquare, possibleMoves);
 }
+
+int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
+{
+	Piece* fromTemp = this->_chessBoard[squFrom.getX()][squFrom.getY()];
+	Piece* toTemp = this->_chessBoard[squTo.getX()][squTo.getY()];
+
+	//check if target and dest square are the same
+	if (squFrom == squTo)
+	{
+		return SAME_SQUARE;
+	}
+
+	if (fromTemp->getColor() != myColor)
+	{
+		return NO_PIECE_FROM;
+	}
+
+	if (toTemp->getColor() != myColor)
+	{
+		return EXIST_PIECE_TO;
+	}
+
+	if (!fromTemp->isLegalMove(squTo))
+	{
+		return ILLIGAL_MOVE;
+	}
+
+	std::vector<Square> tempPossibleMoves;
+	//copy the board to not destroy it
+	Piece* prevBoard[BOARD_SIZE][BOARD_SIZE];
+	this->copyBoard(prevBoard);
+
+	fromTemp->move(squTo);
+	this->_chessBoard[squFrom.getX()][squFrom.getY()] = new EmptyPiece(squFrom);
+	this->_chessBoard[squTo.getX()][squTo.getY()] = fromTemp;
+
+	char opColor = ' ';
+	if (myColor == WHITE)
+	{
+		opColor = BLACK;
+	}
+
+	else if(myColor == BLACK)
+	{
+		opColor = WHITE;
+	}
+
+	//check if move check my king
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			
+			if (this->_chessBoard[i][j]->getColor() == opColor)
+			{
+				tempPossibleMoves = this->_chessBoard[i][j]->findNewPossibleMoves(this->_chessBoard);
+
+				//find out if opponent king is checking my own king after this move
+				if (this->isPieceCheckKing(tempPossibleMoves, myColor))
+				{
+					//revert the move.
+					fromTemp->move(squFrom);
+					delete this->_chessBoard[squFrom.getX()][squFrom.getY()];
+					this->_chessBoard[squFrom.getX()][squFrom.getY()] = fromTemp;
+					this->_chessBoard[squTo.getX()][squTo.getY()] = toTemp;
+					return PERSONAL_CHECK;
+				}
+			}
+		}
+	}
+
+	this->setAllMoves();
+
+	//check if move check oponent king
+	if (this->isInCheck(opColor))
+	{
+		return VALID_CHECK_MOVE;
+	}
+
+	return VALID_MOVE;
+}
+
+void Board::setAllMoves()
+{
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			this->_chessBoard[i][j]->setPossibleMoves(this->_chessBoard);
+		}
+	}
+}
+
+bool Board::isInCheck(const char kingColor) const
+{
+	//oposite piece color
+	char opColor = ' ';
+	if (kingColor == WHITE)
+	{
+		opColor = BLACK;
+	}
+
+	else if (kingColor == BLACK)
+	{
+		opColor = WHITE;
+	}
+
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			if (this->_chessBoard[i][j]->getColor() == opColor)
+			{
+				if (this->isPieceCheckKing(this->_chessBoard[i][j]->getMoves(), kingColor))
+				{
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+//void Board::copyBoard(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
+//{
+//	for (int i = 0; i < BOARD_SIZE; i++)
+//	{
+//		for (int j = 0; j < BOARD_SIZE; j++)
+//		{
+//			chessBoard[i][j] = this->_chessBoard[i][j]->clone();
+//		}
+//	}
+//}
+
 
 bool Board::isEmptySquare(const Square& squ) const
 {

@@ -16,12 +16,12 @@
 enum CODES {
 	VALID_MOVE = 0,
 	VALID_CHECK_MOVE,
-	NO_PIECE_FROM,
-	EXIST_PIECE_TO,
-	PERSONAL_CHECK,
-	OUT_OF_BOARD,
-	ILLIGAL_MOVE,
-	SAME_SQUARE,
+	NO_PIECE_FROM, //
+	EXIST_PIECE_TO, //
+	PERSONAL_CHECK, 
+	OUT_OF_BOARD, //
+	ILLIGAL_MOVE, //
+	SAME_SQUARE, //
 	CHECK_MATE
 };
 
@@ -62,6 +62,12 @@ public:
 	*/
 	int move(const Square& squFrom, const Square& squTo, const char myColor);
 
+	void setAllMoves();
+
+	bool isInCheck(const char kingColor) const;
+
+	void copyBoard(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
+
 
 private:
 	Piece* _chessBoard[BOARD_SIZE][BOARD_SIZE];
@@ -88,9 +94,9 @@ private:
 	/*
 	* check if a certain piece is checking certain king
 	*
-	* @param piece - a piece to be checked
+	* @param possibleMoves - vector of possoble moves that piece can go to
 	* @param kingColor - the color of the king
 	* @return true if check. false if not
 	*/
-	bool isPieceCheckKing(const Piece& piece, const char kingColor) const;
+	bool isPieceCheckKing(const std::vector<Square> possibleMoves, const char kingColor) const;
 };
