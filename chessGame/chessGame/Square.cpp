@@ -44,6 +44,7 @@ Square& Square::operator=(const Square& other)
 {
 	_x = other._x;
 	_y = other._y;
+	return *this;
 }
 
 Square Square::operator+(const Square& other) const

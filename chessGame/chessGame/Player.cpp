@@ -31,7 +31,7 @@ Player::~Player()
 
 Board& Player::getBoard() const
 {
-	// TODO: insert return statement here
+	return *this->_chessBoard;
 }
 
 bool Player::getTurn() const

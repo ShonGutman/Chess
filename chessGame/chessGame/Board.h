@@ -25,8 +25,6 @@ enum CODES {
 	CHECK_MATE
 };
 
-class Piece;
-
 class Board
 {
 public:

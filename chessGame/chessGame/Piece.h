@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include "Square.h"
-#include "Board.h"
 #include "GameException.h"
 
 enum pieceColor
@@ -23,8 +22,6 @@ enum pieceType
 	PAWN = 'P',
 	EMPTY_SQUARE = '#'
 };
-
-class Board;
 
 class Piece
 {

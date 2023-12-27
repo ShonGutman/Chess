@@ -2,14 +2,25 @@
 
 Board::Board()
 {
-	this->setBoard("pppppppp"
-				   "rnbkqbnr"
+	this->setBoard("r##k###r"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
+				   "########"
+				   "########"
+				   "###K###R");
+
+	/*
+	*			   "rnbkqbnr"
+				   "pppppppp"
+				   "########"
+				   "########"
+				   "########"
+				   "########"
+				   "PPPPPPPP"
 				   "RNBKQBNR"
-				   "PPPPPPPP");
+	*/
 }
 
 Board::~Board()
