@@ -144,24 +144,13 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 	this->_chessBoard[squFrom.getX()][squFrom.getY()] = new EmptyPiece(squFrom);
 	this->_chessBoard[squTo.getX()][squTo.getY()] = fromTemp;
 
-	char opColor = ' ';
-	if (myColor == WHITE)
-	{
-		opColor = BLACK;
-	}
-
-	else if(myColor == BLACK)
-	{
-		opColor = WHITE;
-	}
-
 	//check if move check my king
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
 		{
 			
-			if (this->_chessBoard[i][j]->getColor() == opColor)
+			if (this->_chessBoard[i][j]->getColor() == Piece::opColor(myColor))
 			{
 				tempPossibleMoves = this->_chessBoard[i][j]->findNewPossibleMoves(this->_chessBoard);
 
@@ -183,7 +172,7 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 	this->setAllMoves();
 
 	//check if move check oponent king
-	if (this->isInCheck(opColor))
+	if (this->isInCheck(Piece::opColor(myColor)))
 	{
 		return VALID_CHECK_MOVE;
 	}
@@ -204,23 +193,11 @@ void Board::setAllMoves()
 
 bool Board::isInCheck(const char kingColor) const
 {
-	//oposite piece color
-	char opColor = ' ';
-	if (kingColor == WHITE)
-	{
-		opColor = BLACK;
-	}
-
-	else if (kingColor == BLACK)
-	{
-		opColor = WHITE;
-	}
-
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
 		for (int j = 0; j < BOARD_SIZE; j++)
 		{
-			if (this->_chessBoard[i][j]->getColor() == opColor)
+			if (this->_chessBoard[i][j]->getColor() == Piece::opColor(kingColor))
 			{
 				if (this->isPieceCheckKing(this->_chessBoard[i][j]->getMoves(), kingColor))
 				{

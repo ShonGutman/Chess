@@ -59,6 +59,21 @@ void Piece::clearVector()
 	_possibleMoves.clear();
 }
 
+char Piece::opColor(const char color)
+{
+	if (color == WHITE)
+	{
+		return BLACK;
+	}
+
+	else if (color == BLACK)
+	{
+		return WHITE;
+	}
+	
+	throw(GameException("Color can only Black or White"));
+}
+
 bool Piece::isLegalMove(const Square& moveTo) const
 {
 	return Piece::isLegalMove(moveTo, this->_possibleMoves);
