@@ -11,7 +11,7 @@ Rook::~Rook()
 
 std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
 {
-	std::vector<Square> tempPM; //temoPosibleMoves
+	std::vector<Square> tempPM; //tempPosibleMoves
 	Square step(_pos);
 
 	//x+
