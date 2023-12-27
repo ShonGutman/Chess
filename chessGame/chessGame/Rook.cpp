@@ -5,5 +5,3 @@ Rook::Rook(char color, const Square& pos)
 {
 }
 
-
-
