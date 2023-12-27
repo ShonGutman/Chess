@@ -16,12 +16,12 @@
 enum CODES {
 	VALID_MOVE = 0,
 	VALID_CHECK_MOVE,
-	NO_PIECE_FROM, //
-	EXIST_PIECE_TO, //
+	NO_PIECE_FROM, 
+	EXIST_PIECE_TO,
 	PERSONAL_CHECK, 
-	OUT_OF_BOARD, //
-	ILLIGAL_MOVE, //
-	SAME_SQUARE, //
+	OUT_OF_BOARD, 
+	ILLIGAL_MOVE, 
+	SAME_SQUARE,
 	CHECK_MATE
 };
 
@@ -31,6 +31,7 @@ class Board
 {
 public:
 	//constructors
+
 	/*
 	* constructor for Board
 	*/
@@ -42,6 +43,11 @@ public:
 	*/
 	~Board();
 
+	/*
+	* function will set a board acording to a given string to set pieces
+	* 
+	* @param initGame - a string that represents all pieces squares'
+	*/
 	void setBoard(const std::string initGame);
 
 	/*
@@ -62,9 +68,6 @@ public:
 	*/
 	int move(const Square& squFrom, const Square& squTo, const char myColor);
 
-	void setAllMoves();
-
-	bool isInCheck(const char kingColor) const;
 
 	void copyBoard(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
 
@@ -99,4 +102,16 @@ private:
 	* @return true if check. false if not
 	*/
 	bool isPieceCheckKing(const std::vector<Square> possibleMoves, const char kingColor) const;
+
+	/*
+	* function sets the possible moves vector to all pieces in board
+	*/
+	void setAllMoves();
+
+	/*
+	* function will check if a certain king is in check
+	* 
+	* @param kingColor - the color of the requested king
+	*/
+	bool isInCheck(const char kingColor) const;
 };
