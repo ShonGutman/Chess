@@ -66,8 +66,6 @@ public:
 
 	bool isInCheck(const char kingColor) const;
 
-	void copyBoard(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
-
 
 private:
 	Piece* _chessBoard[BOARD_SIZE][BOARD_SIZE];

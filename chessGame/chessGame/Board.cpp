@@ -139,9 +139,6 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 	}
 
 	std::vector<Square> tempPossibleMoves;
-	//copy the board to not destroy it
-	Piece* prevBoard[BOARD_SIZE][BOARD_SIZE];
-	this->copyBoard(prevBoard);
 
 	fromTemp->move(squTo);
 	this->_chessBoard[squFrom.getX()][squFrom.getY()] = new EmptyPiece(squFrom);
@@ -233,17 +230,6 @@ bool Board::isInCheck(const char kingColor) const
 	}
 	return false;
 }
-
-//void Board::copyBoard(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
-//{
-//	for (int i = 0; i < BOARD_SIZE; i++)
-//	{
-//		for (int j = 0; j < BOARD_SIZE; j++)
-//		{
-//			chessBoard[i][j] = this->_chessBoard[i][j]->clone();
-//		}
-//	}
-//}
 
 
 bool Board::isEmptySquare(const Square& squ) const
