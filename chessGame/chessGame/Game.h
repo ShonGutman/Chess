@@ -33,7 +33,7 @@ public:
 	int play(std::string move);
 
 private:
-	Player _playerW;
-	Player _playerB;
+	Player* _playerW;
+	Player* _playerB;
 	Board* _chessBoard;
 };

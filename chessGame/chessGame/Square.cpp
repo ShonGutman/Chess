@@ -96,7 +96,7 @@ void Square::DecY()
 
 bool Square::checkSquare(const int x, const int y)
 {
-	if (x >= BOARD_SIZE || x < 0 || y >= BOARD_SIZE || y < 0)
+	if (x >= BOARD_SIZE && x < 0 && y >= BOARD_SIZE && y < 0)
 	{
 		return false;
 	}

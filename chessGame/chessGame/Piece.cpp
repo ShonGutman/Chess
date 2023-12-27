@@ -98,7 +98,7 @@ void Piece::setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
 
 void Piece::setColor(const char color)
 {
-	if (color != WHITE || color != BLACK || color != EMPTY_SQUARE)
+	if (color != WHITE && color != BLACK && color != EMPTY_SQUARE)
 	{
 		throw GameException("Piece color is wrong!");
 	}
@@ -107,8 +107,8 @@ void Piece::setColor(const char color)
 
 void Piece::setType(const char type)
 {
-	if (type != KING || type != QUEEN || type != ROOK || type != KNIGHT|| 
-		type != BISHOP || type != PAWN || type != EMPTY_SQUARE)
+	if (type != KING && type != QUEEN && type != ROOK && type != KNIGHT &&
+		type != BISHOP && type != PAWN && type != EMPTY_SQUARE)
 	{
 		throw GameException("Piece type is wrong!");
 	}
@@ -117,7 +117,7 @@ void Piece::setType(const char type)
 
 void Piece::setPosition(const Square& pos)
 {
-	if (Square::checkSquare(pos.getX(), pos.getY()))
+	if (!Square::checkSquare(pos.getX(), pos.getY()))
 	{
 		throw GameException("Position is illegal!");
 	}

@@ -49,7 +49,12 @@ void Board::setBoard(const std::string initGame)
 		{
 			Square tempSqu(i, j);
 			
-			if (initGame[i * BOARD_SIZE + j] == tolower(PAWN)) // black pawn
+			if (initGame[i * BOARD_SIZE + j] == EMPTY_SQUARE) //empty square
+			{
+				this->_chessBoard[i][j] = new EmptyPiece(tempSqu);
+			}
+
+			else if (initGame[i * BOARD_SIZE + j] == tolower(PAWN)) // black pawn
 			{
 				this->_chessBoard[i][j] = new Pawn(BLACK, tempSqu);
 			}
@@ -109,9 +114,9 @@ void Board::setBoard(const std::string initGame)
 				this->_chessBoard[i][j] = new King(WHITE, tempSqu);
 			}
 
-			else //empty square
+			else 
 			{
-				this->_chessBoard[i][j] = new EmptyPiece(tempSqu);
+				throw GameException("Illigal piece placement...")
 			}
 		}
 	}
