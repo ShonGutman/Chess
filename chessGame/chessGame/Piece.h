@@ -92,6 +92,12 @@ public:
 	*/
 	void clearVector();
 	
+	/*
+	* return oposite color of a given color
+	* 
+	* @param color - color of a piece
+	* @return the oposite color
+	*/
 	static char opColor(const char color);
 
 	/*
@@ -101,9 +107,29 @@ public:
 	* @return true if can move. false if not
 	*/
 	bool isLegalMove(const Square& moveTo) const;
+
+	/*
+	* check if a move is in possible moves vector
+	*
+	* @param moveTo - a square to check
+	* @param possibleMoves - vector of possible moves
+	* @return true if can move. false if not
+	*/
 	static bool isLegalMove(const Square& moveTo, std::vector<Square> possibleMoves);
 
-	virtual void setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
+	/*
+	* set vector of possible move
+	* 
+	* @param chessBoard - a chess board 2d array of piece* 
+	*/
+	void setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
+
+	/*
+	* get the possible moves after a move was done
+	* 
+	* @param chessBoard - a chess board 2d array of piece* 
+	* @return vector of possible square moves
+	*/
 	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) = 0;
 
 protected:
