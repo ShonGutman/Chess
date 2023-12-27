@@ -92,6 +92,8 @@ public:
 	*/
 	void clearVector();
 	
+	static char opColor(const char color);
+
 	/*
 	* check if a move is in possible moves vector
 	* 
@@ -99,7 +101,6 @@ public:
 	* @return true if can move. false if not
 	*/
 	bool isLegalMove(const Square& moveTo) const;
-
 	static bool isLegalMove(const Square& moveTo, std::vector<Square> possibleMoves);
 
 	virtual void setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);

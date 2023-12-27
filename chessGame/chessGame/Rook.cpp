@@ -18,7 +18,7 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	while (step.getX() < BOARD_SIZE)
 	{
 		step.IncX();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == BLACK)
+		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
 		{
 			tempPM.push_back(step);
 			break;
@@ -35,7 +35,7 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	while (step.getX() < BOARD_SIZE)
 	{
 		step.IncY();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == BLACK)
+		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
 		{
 			tempPM.push_back(step);
 			break;
@@ -52,7 +52,7 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	while (step.getX() == 0)
 	{
 		step.DecX();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == BLACK)
+		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
 		{
 			tempPM.push_back(step);
 			break;
@@ -69,7 +69,7 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	while (step.getX() == 0)
 	{
 		step.DecY();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == BLACK)
+		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
 		{
 			tempPM.push_back(step);
 			break;
