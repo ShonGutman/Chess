@@ -9,7 +9,9 @@ Board::Board()
 				   "########"
 				   "########"
 				   "########"
-				   "###K###R");
+				   "R##K###R");
+
+	this->setAllMoves();
 
 	/*
 	*			   "rnbkqbnr"
@@ -21,6 +23,7 @@ Board::Board()
 				   "PPPPPPPP"
 				   "RNBKQBNR"
 	*/
+
 }
 
 Board::~Board()
@@ -116,7 +119,7 @@ void Board::setBoard(const std::string initGame)
 
 			else 
 			{
-				throw GameException("Illigal piece placement...")
+				throw GameException("Illigal piece placement...");
 			}
 		}
 	}
@@ -144,7 +147,7 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 		return NO_PIECE_FROM;
 	}
 
-	if (toTemp->getColor() != myColor)
+	if (toTemp->getColor() == myColor)
 	{
 		return EXIST_PIECE_TO;
 	}

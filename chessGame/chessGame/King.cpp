@@ -51,18 +51,21 @@ std::vector<Square> King::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 
 	//x+y+
 	step = _pos;
-	step.IncX();
-	step.IncY();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (!(step.IncX() && step.IncY()))
 	{
-		tempPM.push_back(step);
+		if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
+			chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+		{
+			tempPM.push_back(step);
+		}
 	}
+
+
 
 	//x+y-
 	step = _pos;
-	step.IncX();
-	step.DecY();
+	if(!(step.IncX() && step.DecY()))
+
 	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
 		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
 	{

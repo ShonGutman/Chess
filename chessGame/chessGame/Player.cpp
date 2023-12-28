@@ -70,9 +70,9 @@ int Player::play(std::string move)
 		}
 		else if (isdigit(temp))
 		{
-			if (int(temp) >= int(0) && int(temp) <= int(BOARD_SIZE))
+			if (int(temp) >= int('0') && int(temp) <= int(BOARD_SIZE + '0'))
 			{
-				cord[i] = int(BOARD_SIZE) - int(temp);
+				cord[i] = int(BOARD_SIZE + '0') - int(temp);
 			}
 		}
 		else
@@ -84,8 +84,8 @@ int Player::play(std::string move)
 	Square squTo;
 	try
 	{
-		squFrom.setSquare(cord[0], cord[1]);
-		squTo.setSquare(cord[2], cord[3]);
+		squFrom.setSquare(cord[1], cord[0]);
+		squTo.setSquare(cord[3], cord[2]);
 	}
 	catch (GameException& e)
 	{

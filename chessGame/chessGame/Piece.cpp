@@ -70,6 +70,12 @@ char Piece::opColor(const char color)
 	{
 		return WHITE;
 	}
+
+	else if (color == EMPTY_SQUARE)
+	{
+		std::cerr << "WARNING: tried to get color of empty square";
+		return EMPTY_SQUARE;
+	}
 	
 	throw(GameException("Color can only Black or White"));
 }

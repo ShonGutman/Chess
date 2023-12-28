@@ -74,24 +74,44 @@ bool Square::operator==(const Square& other) const
 	return this->_x == other._x && this->_y == other._y;
 }
 
-void Square::IncX()
+bool Square::IncX()
 {
-	_x++;
+	if (_x < BOARD_SIZE - 1)
+	{
+		_x++;
+		return true;
+	}
+	return false;
 }
 
-void Square::IncY()
+bool Square::IncY()
 {
-	_y++;
+	if (_y < BOARD_SIZE - 1)
+	{
+		_y++;
+		return true;
+	}
+	return false;
 }
 
-void Square::DecX()
+bool Square::DecX()
 {
-	_x--;
+	if (_x > 0)
+	{
+		_x--;
+		return true;
+	}
+	return false;
 }
 
-void Square::DecY()
+bool Square::DecY()
 {
-	_y--;
+	if (_y > 0)
+	{
+		_y--;
+		return true;
+	}
+	return false;
 }
 
 bool Square::checkSquare(const int x, const int y)

@@ -20,6 +20,7 @@ int main()
 	try
 	{
 		Game chessGame;
+		chessGame.play("a1a5");
 	}
 	catch (GameException& e)
 	{
