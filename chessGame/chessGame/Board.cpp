@@ -187,7 +187,8 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 		}
 	}
 
-
+	//move is legal, remove what has been on target square
+	delete toTemp;
 	this->setAllMoves();
 
 	//check if move check oponent king

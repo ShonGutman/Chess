@@ -15,10 +15,7 @@ Piece::~Piece()
 
 void Piece::move(const Square& newPos)
 {
-	if (isLegalMove(newPos))
-	{
 		this->_pos = newPos;
-	}
 }
 
 char Piece::pieceInfo() const
