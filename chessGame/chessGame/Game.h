@@ -32,6 +32,8 @@ public:
 	*/
 	int play(std::string move);
 
+	void printGameBoard();
+
 private:
 	Player* _playerW;
 	Player* _playerB;

@@ -228,7 +228,6 @@ bool Board::isInCheck(const char kingColor) const
 	return false;
 }
 
-
 bool Board::isEmptySquare(const Square& squ) const
 {
 	return this->_chessBoard[squ.getX()][squ.getY()]->getType() == EMPTY_SQUARE;
@@ -249,4 +248,17 @@ Square Board::findKing(const char kingColor) const
 	}
 
 	throw GameException("King was not found. maybe king doesn't exist.");
+}
+
+void Board::printBoard()
+{
+	for (int x = 0; x < BOARD_SIZE; x++)
+	{
+		for (int y = 0; y < BOARD_SIZE; y++)
+		{
+			std::cout << _chessBoard[x][y]->pieceInfo();
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
 }

@@ -20,7 +20,10 @@ int main()
 	try
 	{
 		Game chessGame;
-		chessGame.play("a1a5");
+		cout << "Starting new game!" << endl;
+		chessGame.printGameBoard();
+		cout << "Move return code:" << chessGame.play("a1a5") << endl;
+		chessGame.printGameBoard();
 	}
 	catch (GameException& e)
 	{
