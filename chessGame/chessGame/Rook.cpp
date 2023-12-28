@@ -15,30 +15,27 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	Square step(_pos);
 
 	//x+
-	while (step.IncX())
+	while (step.IncX() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step,tempPM,chessBoard);
 	}
 
 	//y+
 	step = _pos;
-	while (step.IncY())
+	while (step.IncY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-
 	step = _pos;
-	while (step.DecX())
+	while (step.DecX() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//y-
 	step = _pos;
-	while (step.DecY())
+	while (step.DecY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
+
 	return tempPM;
 }

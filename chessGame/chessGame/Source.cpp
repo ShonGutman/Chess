@@ -22,8 +22,37 @@ int main()
 		Game chessGame;
 		cout << "Starting new game!" << endl;
 		chessGame.printGameBoard();
-		cout << "Move return code:" << chessGame.play("a1a5") << endl;
+		cout << "Move string:" << "a1a5 ";
+		cout << "Move return code:" << chessGame.play("a1a5") << endl; //good
 		chessGame.printGameBoard();
+		cout << "Move string:" << "h8f6 ";
+		cout << "Move return code:" << chessGame.play("h8f6") << endl; //fail
+		chessGame.printGameBoard();
+		cout << "Move string:" << "h8h6 ";
+		cout << "Move return code:" << chessGame.play("h8h6") << endl; //good
+		chessGame.printGameBoard();
+		cout << "Move string:" << "h1c6 ";
+		cout << "Move return code:" << chessGame.play("h1c6") << endl; //fail
+		chessGame.printGameBoard();
+		cout << "Move string:" << "h1f1 ";
+		cout << "Move return code:" << chessGame.play("h1f1") << endl; //good
+		chessGame.printGameBoard();
+		cout << "Move string:" << "e8c6 ";
+		cout << "Move return code:" << chessGame.play("e8c6") << endl;//fail
+		chessGame.printGameBoard();
+		cout << "Move string:" << "e8d8 ";
+		cout << "Move return code:" << chessGame.play("e8d8") << endl; //good
+		chessGame.printGameBoard();
+		cout << "Move string:" << "a5d5 ";
+		cout << "Move return code:" << chessGame.play("a5d5") << endl; //chess on black king
+		chessGame.printGameBoard();
+		cout << "Move string:" << "h6b6 ";
+		cout << "Move return code:" << chessGame.play("h6b6") << endl; //fail
+		chessGame.printGameBoard();
+		cout << "Move string:" << "h6d6 ";
+		cout << "Move return code:" << chessGame.play("h6d6") << endl;//good
+		chessGame.printGameBoard();
+
 	}
 	catch (GameException& e)
 	{

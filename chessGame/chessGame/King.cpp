@@ -15,60 +15,52 @@ std::vector<Square> King::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	Square step(_pos);
 
 	//x+
-	if (step.IncX())
+	if (step.IncX() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-
 	step = _pos;
-	if (step.DecX())
+	if (step.DecX() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//y+
 	step = _pos;
-	if (step.IncY())
+	if (step.IncY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//y-
 	step = _pos;
-	if (step.DecY())
+	if (step.DecY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x+y+
 	step = _pos;
-	if (step.IncX() && step.IncY())
+	if (step.IncX() && step.IncY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 
 
 	//x+y-
 	step = _pos;
-	if (step.IncX() && step.DecY())
+	if (step.IncX() && step.DecY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-y+
 	step = _pos;
-	if (step.DecX() && step.IncY())
+	if (step.DecX() && step.IncY() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-y-
 	step = _pos;
-	if (step.DecX() && step.DecX())
+	if (step.DecX() && step.DecX() && this->checkStep(step, tempPM, chessBoard))
 	{
-		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	return tempPM;

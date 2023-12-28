@@ -30,7 +30,7 @@ int Game::play(std::string move)
 	}
 	else if(_playerB->getTurn())
 	{
-		int code = _playerB->play(move);
+		code = _playerB->play(move);
 	}
 	else
 	{

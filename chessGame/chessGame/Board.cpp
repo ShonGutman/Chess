@@ -2,26 +2,26 @@
 
 Board::Board()
 {
-	this->setBoard("r##k###r"
+	this->setBoard("r###k##r"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
-				   "R##K###R");
+				   "R###K##R");
 
 	this->setAllMoves();
 
 	/*
-	*			   "rnbkqbnr"
+	*			   "rnbqkbnr"
 				   "pppppppp"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
 				   "PPPPPPPP"
-				   "RNBKQBNR"
+				   "RNBQKBNR"
 	*/
 
 }
@@ -252,11 +252,13 @@ Square Board::findKing(const char kingColor) const
 
 void Board::printBoard()
 {
+	std::cout << "  a b c d e f g h" << std::endl;
 	for (int x = 0; x < BOARD_SIZE; x++)
 	{
+		std::cout << BOARD_SIZE - x << "|";
 		for (int y = 0; y < BOARD_SIZE; y++)
 		{
-			std::cout << _chessBoard[x][y]->pieceInfo();
+			std::cout << _chessBoard[x][y]->pieceInfo() << " ";
 		}
 		std::cout << std::endl;
 	}
