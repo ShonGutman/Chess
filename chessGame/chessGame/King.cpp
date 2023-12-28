@@ -15,82 +15,70 @@ std::vector<Square> King::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	Square step(_pos);
 
 	//x+
-	step.IncX();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.IncX())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-
 	step = _pos;
-	step.DecX();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.DecX())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//y+
 	step = _pos;
-	step.IncY();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.IncY())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//y-
 	step = _pos;
-	step.DecY();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.DecY())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x+y+
 	step = _pos;
-	if (!(step.IncX() && step.IncY()))
+	if (step.IncX() && step.IncY())
 	{
-		if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-			chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
-		{
-			tempPM.push_back(step);
-		}
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 
 
 	//x+y-
 	step = _pos;
-	if(!(step.IncX() && step.DecY()))
-
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.IncX() && step.DecY())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-y+
 	step = _pos;
-	step.DecX();
-	step.IncY();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.DecX() && step.IncY())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-y-
 	step = _pos;
-	step.DecX();
-	step.DecX();
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (step.DecX() && step.DecX())
 	{
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	return tempPM;
+}
+
+void King::checkStep(Square& step, std::vector<Square>& possibleMoves, Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
+{
+	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
+		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	{
+		possibleMoves.push_back(step);
+	}
 }

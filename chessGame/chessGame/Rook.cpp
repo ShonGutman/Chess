@@ -15,70 +15,39 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	Square step(_pos);
 
 	//x+
-	while (step.getX() < BOARD_SIZE)
+	while (step.IncX())
 	{
-		step.IncX();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
-		{
-			tempPM.push_back(step);
-			break;
-		}
-		if (chessBoard[step.getX()][step.getY()]->getColor() != EMPTY_SQUARE)
-		{
-			break;
-		}
-		tempPM.push_back(step);
+		this->checkStep(step,tempPM,chessBoard);
 	}
 
 	//y+
 	step = _pos;
-	while (step.getX() < BOARD_SIZE)
+	while (step.IncY())
 	{
-		step.IncY();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
-		{
-			tempPM.push_back(step);
-			break;
-		}
-		if (chessBoard[step.getX()][step.getY()]->getType() != EMPTY_SQUARE)
-		{
-			break;
-		}
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//x-
 	step = _pos;
-	while (step.getX() == 0)
+	while (step.DecX())
 	{
-		step.DecX();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
-		{
-			tempPM.push_back(step);
-			break;
-		}
-		if (chessBoard[step.getX()][step.getY()]->getType() != EMPTY_SQUARE)
-		{
-			break;
-		}
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 
 	//y-
 	step = _pos;
-	while (step.getX() == 0)
+	while (step.DecY())
 	{
-		step.DecY();
-		if (chessBoard[step.getX()][step.getY()]->getColor() == Piece::opColor(_color))
-		{
-			tempPM.push_back(step);
-			break;
-		}
-		if (chessBoard[step.getX()][step.getY()]->getType() != EMPTY_SQUARE)
-		{
-			break;
-		}
-		tempPM.push_back(step);
+		this->checkStep(step, tempPM, chessBoard);
 	}
 	return tempPM;
+}
+
+void Rook::checkStep(Square& step, std::vector<Square>& possibleMoves, Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
+{
+	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
+		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	{
+		possibleMoves.push_back(step);
+	}
 }
