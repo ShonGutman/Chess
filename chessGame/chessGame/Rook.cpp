@@ -42,12 +42,3 @@ std::vector<Square> Rook::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	}
 	return tempPM;
 }
-
-void Rook::checkStep(Square& step, std::vector<Square>& possibleMoves, Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
-{
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
-	{
-		possibleMoves.push_back(step);
-	}
-}

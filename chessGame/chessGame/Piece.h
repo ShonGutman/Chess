@@ -134,6 +134,7 @@ protected:
 	char _type;
 	Square _pos;
 	std::vector<Square> _possibleMoves;
+	void checkStep(Square& step, std::vector<Square>& possibleMoves, Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
 
 
 private:
