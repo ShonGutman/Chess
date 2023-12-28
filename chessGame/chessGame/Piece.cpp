@@ -101,11 +101,15 @@ void Piece::setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
 
 bool Piece::checkStep(Square& step, std::vector<Square>& possibleMoves, Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
 {
-	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color) ||
-		chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+	if (chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
 	{
 		possibleMoves.push_back(step);
 		return true;
+	}
+	if (chessBoard[step.getX()][step.getY()]->getColor() == opColor(_color))
+	{
+		possibleMoves.push_back(step);
+		return false;
 	}
 	return false;
 }

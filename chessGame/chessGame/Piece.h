@@ -134,6 +134,17 @@ protected:
 	char _type;
 	Square _pos;
 	std::vector<Square> _possibleMoves;
+
+	/**
+	* Check if a step a piece takes is legal.
+	* 
+	* @param step the Square the piece is trying to go to.
+	* @param possibleMoves vector step will be added to if step is legal.
+	* @param chessBoard board of game.
+	* 
+	* @returns true if step is legal and piece can contiue.
+	* @returns false if step was legal and piece can't contiue or step wasn't legal(so piece can't contiue).
+	*/
 	bool checkStep(Square& step, std::vector<Square>& possibleMoves, Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]);
 
 
