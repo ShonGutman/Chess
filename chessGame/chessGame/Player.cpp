@@ -67,12 +67,20 @@ int Player::play(std::string move)
 			{
 				cord[i] = int(temp) - int('a');
 			}
+			else
+			{
+				return OUT_OF_BOARD;
+			}
 		}
 		else if (isdigit(temp))
 		{
 			if (int(temp) >= int('0') && int(temp) <= int(BOARD_SIZE + '0'))
 			{
 				cord[i] = int(BOARD_SIZE + '0') - int(temp);
+			}
+			else
+			{
+				return OUT_OF_BOARD;
 			}
 		}
 		else
