@@ -44,6 +44,7 @@ int main()
 	}
 	//Pipe p;
 	//bool isConnect = p.connect();
+	//Game chessGame;
 	//
 	//string ans;
 	//while (!isConnect)
@@ -61,7 +62,7 @@ int main()
 	//	else 
 	//	{
 	//		p.close();
-	//		return;
+	//		return -1;
 	//	}
 	//}
 	//
@@ -70,7 +71,14 @@ int main()
 	//// msgToGraphics should contain the board string accord the protocol
 	//// YOUR CODE
 
-	//strcpy_s(msgToGraphics, "rnbkqbnrpppppppp################################PPPPPPPPRNBKQBNR1"); // just example...
+	//strcpy_s(msgToGraphics, "r###k##r"
+	//						"########"
+	//						"########"
+	//						"########"
+	//						"########"
+	//						"########"
+	//						"########"
+	//						"R###K##R0"); // just example...
 	//
 	//p.sendMessageToGraphics(msgToGraphics);   // send the board string
 
@@ -83,7 +91,8 @@ int main()
 	//	// according the protocol. Ex: e2e4           (move e2 to e4)
 	//	
 	//	// YOUR CODE
-	//	strcpy_s(msgToGraphics, "YOUR CODE"); // msgToGraphics should contain the result of the operation
+	//	//const char code[2] = {char( '0' + chessGame.play(msgFromGraphics))};
+	//	//strcpy_s(msgToGraphics, code); // msgToGraphics should contain the result of the operation
 
 	//	/******* JUST FOR EREZ DEBUGGING ******/
 	//	int r = rand() % 10; // just for debugging......
@@ -91,6 +100,8 @@ int main()
 	//	msgToGraphics[1] = 0;
 	//	/******* JUST FOR EREZ DEBUGGING ******/
 
+	//	const char code[2] = { char('0' + chessGame.play(msgFromGraphics)) };
+	//	strcpy_s(msgToGraphics, code); // msgToGraphics should contain the result of the operation
 
 	//	// return result to graphics		
 	//	p.sendMessageToGraphics(msgToGraphics);   
@@ -99,6 +110,6 @@ int main()
 	//	msgFromGraphics = p.getMessageFromGraphics();
 	//}
 
-	//p.close();
-	return 0;
+	////p.close();
+	//return 0;
 }
