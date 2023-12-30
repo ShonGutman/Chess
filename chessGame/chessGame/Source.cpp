@@ -87,8 +87,7 @@ int main()
 		// according the protocol. Ex: e2e4           (move e2 to e4)
 		
 		// YOUR CODE
-		//const char code[2] = {char( '0' + chessGame.play(msgFromGraphics))};
-		//strcpy_s(msgToGraphics, code); // msgToGraphics should contain the result of the operation
+		
 		/******* JUST FOR EREZ DEBUGGING ******/
 		int r = rand() % 10; // just for debugging......
 		msgToGraphics[0] = (char)(1 + '0');
@@ -99,8 +98,12 @@ int main()
 		// return result to graphics		
 		p.sendMessageToGraphics(msgToGraphics);   
 		// get message from graphics
+		if (code[0] == char('0' + CHECK_MATE))
+		{
+			break; //game has ended
+		}
 		msgFromGraphics = p.getMessageFromGraphics();
 	}
-	//p.close();
+	p.close();
 	return 0;
 }
