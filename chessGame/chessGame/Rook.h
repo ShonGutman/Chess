@@ -2,7 +2,7 @@
 
 #include "Piece.h"
 
-class Rook : public Piece
+class Rook : virtual public Piece
 {
 public:
 	Rook(char color, const Square& pos);

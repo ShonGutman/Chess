@@ -1,8 +1,9 @@
 #pragma once
 
-#include "Piece.h"
+#include "Rook.h"
+#include "Bishop.h"
 
-class Queen : public Piece
+class Queen : public Rook, public Bishop
 {
 public:
     Queen(char color, const Square& pos);

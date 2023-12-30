@@ -2,14 +2,14 @@
 
 Board::Board()
 {
-	this->setBoard("r#b#kb#r"
+	this->setBoard("rnbqkbnr"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
-				   "R#B#KB#R");
+				   "RNBQKBNR");
 
 	this->setAllMoves();
 

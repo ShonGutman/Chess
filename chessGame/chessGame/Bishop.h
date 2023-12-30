@@ -2,7 +2,7 @@
 
 #include "Piece.h"
 
-class Bishop : public Piece
+class Bishop : virtual public Piece
 {
 public:
 	Bishop(char color, const Square& pos);
