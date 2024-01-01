@@ -60,6 +60,7 @@ std::vector<Square> Pawn::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 		}
 
 		//x+
+		step = _pos;
 		if (step.IncX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
 		{
 			tempPM.push_back(step);

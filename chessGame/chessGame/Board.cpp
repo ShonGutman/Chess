@@ -194,10 +194,54 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 	//check if move check oponent king
 	if (this->isInCheck(Piece::opColor(myColor)))
 	{
+		if (checkMate(Piece::opColor(myColor)))
+		{
+			return CHECK_MATE;
+		}
 		return VALID_CHECK_MOVE;
 	}
 
 	return VALID_MOVE;
+}
+
+bool Board::checkMate(const char kingColor)
+{
+	Square kingSquare = findKing(kingColor);
+	Piece* kingPiece = this->_chessBoard[kingSquare.getX()][kingSquare.getY()];
+	std::vector<Square> tempPossibleMoves;
+	bool checkFlag = false;
+	int opPieceCount = 0;
+
+	for (int i = 0; i < kingPiece->getMoves().size(); i++)
+	{
+		kingPiece->move(kingPiece->getMoves()[i]);
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			for (int k = 0; k < BOARD_SIZE; k++)
+			{
+				if (this->_chessBoard[i][j]->getColor() != kingColor)
+				{
+					opPieceCount++;
+					tempPossibleMoves = this->_chessBoard[i][j]->findNewPossibleMoves(this->_chessBoard);
+					if (isPieceCheckKing(tempPossibleMoves, kingColor))
+					{
+						checkFlag = true;
+					}
+				}
+			}
+		}
+		if (!checkFlag && opPieceCount > 0)
+		{
+			kingPiece->move(kingSquare);
+			return false;
+		}
+
+		opPieceCount = 0;
+		checkFlag = true;
+	}
+
+	kingPiece->move(kingSquare);
+	return true;
 }
 
 void Board::setAllMoves()
@@ -251,7 +295,7 @@ Square Board::findKing(const char kingColor) const
 	throw GameException("King was not found. maybe king doesn't exist.");
 }
 
-void Board::printBoard()
+void Board::printBoard() const
 {
 	std::cout << "  a b c d e f g h" << std::endl;
 	for (int x = 0; x < BOARD_SIZE; x++)
