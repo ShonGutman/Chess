@@ -201,6 +201,17 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 }
 
 
+void Board::setAllMoves()
+{
+	for (int i = 0; i < BOARD_SIZE; i++)
+	{
+		for (int j = 0; j < BOARD_SIZE; j++)
+		{
+			this->_chessBoard[i][j]->setPossibleMoves(this->_chessBoard);
+		}
+	}
+}
+
 bool Board::isInCheck(const char kingColor) const
 {
 	for (int i = 0; i < BOARD_SIZE; i++)
