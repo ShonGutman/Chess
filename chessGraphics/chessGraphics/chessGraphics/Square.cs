@@ -10,11 +10,20 @@ namespace chessGraphics
     {
         int _colIndex;
         int _rowIndex;
+        char _pieceType;
         
         public Square(int row, int col)
         {
             _rowIndex = row;
             _colIndex = col;
+            _pieceType = '#';
+        }
+
+        public Square(int row, int col, char piece)
+        {
+            _rowIndex = row;
+            _colIndex = col;
+            _pieceType = piece;
         }
 
         public int Row
@@ -25,6 +34,12 @@ namespace chessGraphics
         public int Col
         {
             get { return _colIndex; }
+        }
+
+        public char Type
+        {
+            get { return _pieceType; }
+            set { _pieceType = value; }
         }
 
         public override string ToString()

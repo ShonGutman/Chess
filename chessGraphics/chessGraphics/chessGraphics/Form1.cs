@@ -103,7 +103,7 @@ namespace chessGraphics
                 case 'B':
                     return Properties.Resources.b_white;
                 case '#':
-                    return Properties.Resources.square;
+                    return null;
                 default:
                     return Properties.Resources.x;
 
@@ -148,17 +148,20 @@ namespace chessGraphics
                     newBtn.FlatStyle = btnBoard.FlatStyle;
 
                     newBtn.Size = new System.Drawing.Size(btnBoard.Width, btnBoard.Height);
-                    newBtn.Tag = new Square(i, j);
+                    newBtn.Tag = new Square(i, j, board[z]);
                     pnt = new Point(currentWidth, currentHeight );
                     newBtn.Location = pnt;
                     newBtn.BackgroundImageLayout = ImageLayout.Stretch;
 
-                    Image squareImage = Properties.Resources.square;
+                    Image squareImage = isColBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
                     Image pieceImage  = getImageBySign(board[z]);
 
-                    using (Graphics grfx = Graphics.FromImage(squareImage))
-                    { 
-                        grfx.DrawImage(pieceImage, 0, 0, squareImage.Width, squareImage.Height);
+                    if(pieceImage != null) //if piece is empty no need to draw more
+                    {
+                        using (Graphics grfx = Graphics.FromImage(squareImage))
+                        {
+                            grfx.DrawImage(pieceImage, 0, 0, squareImage.Width, squareImage.Height);
+                        }
                     }
 
                     newBtn.BackgroundImage = squareImage;
@@ -291,10 +294,26 @@ namespace chessGraphics
                         isCurPlWhite = !isCurPlWhite;
                         lblCurrentPlayer.Text = isCurPlWhite ? "White" : "Black";
 
-                        matBoard[dstSquare.Row, dstSquare.Col].BackgroundImage = matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage;
-                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = Properties.Resources.square;
+                        bool isDstBlack = dstSquare.Row % 2 == dstSquare.Col % 2;
+                        dstSquare.Type = srcSquare.Type;
+                        Image squareImage = isDstBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
+                        Image pieceImage = getImageBySign(srcSquare.Type);
 
-                        matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.Blue;
+                        if (pieceImage != null) //if piece is empty no need to draw more
+                        {
+                            using (Graphics grfx = Graphics.FromImage(squareImage))
+                            {
+                                grfx.DrawImage(pieceImage, 0, 0, squareImage.Width, squareImage.Height);
+                            }
+                        }
+
+                        matBoard[dstSquare.Row, dstSquare.Col].BackgroundImage = squareImage;
+
+                        bool isColBlack = srcSquare.Row % 2 == srcSquare.Col % 2;
+                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = isColBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
+                        srcSquare.Type = '#'; //empty square
+
+                         matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.Blue;
                         matBoard[dstSquare.Row, dstSquare.Col].FlatAppearance.BorderColor = Color.Blue;
                     
                     }

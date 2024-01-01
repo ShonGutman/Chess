@@ -183,9 +183,19 @@ namespace chessGraphics.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap square {
+        internal static System.Drawing.Bitmap s_black {
             get {
-                object obj = ResourceManager.GetObject("square", resourceCulture);
+                object obj = ResourceManager.GetObject("s_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap s_white {
+            get {
+                object obj = ResourceManager.GetObject("s_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
