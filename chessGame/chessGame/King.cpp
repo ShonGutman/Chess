@@ -43,8 +43,6 @@ std::vector<Square> King::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	{
 	}
 
-
-
 	//x+y-
 	step = _pos;
 	if (step.IncX() && step.DecY() && this->checkStep(step, tempPM, chessBoard))

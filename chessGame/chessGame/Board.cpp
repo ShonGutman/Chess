@@ -3,12 +3,12 @@
 Board::Board()
 {
 	this->setBoard("rnbqkbnr"
+				   "pppppppp"
 				   "########"
 				   "########"
 				   "########"
 				   "########"
-				   "########"
-				   "########"
+				   "PPPPPPPP"
 				   "RNBQKBNR");
 
 	this->setAllMoves();
