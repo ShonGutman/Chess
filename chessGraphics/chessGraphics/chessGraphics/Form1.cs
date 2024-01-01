@@ -26,7 +26,7 @@ namespace chessGraphics
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); //labels
         }
 
         private void initForm()
@@ -60,7 +60,7 @@ namespace chessGraphics
         }
 
         Thread connectionThread;
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e) //
         {
             enginePipe = new pipe();
             //this.Show();
@@ -103,7 +103,7 @@ namespace chessGraphics
                 case 'B':
                     return Properties.Resources.b_white;
                 case '#':
-                    return null;
+                    return Properties.Resources.square;
                 default:
                     return Properties.Resources.x;
 
@@ -142,7 +142,7 @@ namespace chessGraphics
                     matBoard[i, j] = newBtn;
 
                     newBtn.FlatAppearance.MouseOverBackColor = btnBoard.FlatAppearance.MouseOverBackColor ;
-                    newBtn.BackColor = isColBlack ? Color.Gray : Color.White;
+                    //newBtn.BackColor = isColBlack ? Color.Gray : Color.White; //background color changer
                     newBtn.FlatAppearance.BorderColor = btnBoard.FlatAppearance.BorderColor;
                     newBtn.FlatAppearance.BorderSize = btnBoard.FlatAppearance.BorderSize;
                     newBtn.FlatStyle = btnBoard.FlatStyle;
@@ -153,8 +153,17 @@ namespace chessGraphics
                     newBtn.Location = pnt;
                     newBtn.BackgroundImageLayout = ImageLayout.Stretch;
 
-                    newBtn.BackgroundImage  = getImageBySign(board[z]);
-                    
+                    Image squareImage = Properties.Resources.square;
+                    Image pieceImage  = getImageBySign(board[z]);
+
+                    using (Graphics grfx = Graphics.FromImage(squareImage))
+                    { 
+                        grfx.DrawImage(pieceImage, 0, 0, squareImage.Width, squareImage.Height);
+                    }
+
+                    newBtn.BackgroundImage = squareImage;
+
+
                     newBtn.Click += lastlbl_Click;
 
                     Controls.Add(newBtn);
@@ -283,7 +292,7 @@ namespace chessGraphics
                         lblCurrentPlayer.Text = isCurPlWhite ? "White" : "Black";
 
                         matBoard[dstSquare.Row, dstSquare.Col].BackgroundImage = matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage;
-                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = null;
+                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = Properties.Resources.square;
 
                         matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.Blue;
                         matBoard[dstSquare.Row, dstSquare.Col].FlatAppearance.BorderColor = Color.Blue;
