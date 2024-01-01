@@ -149,7 +149,7 @@ namespace chessGraphics
 
                     newBtn.Size = new System.Drawing.Size(btnBoard.Width, btnBoard.Height);
                     newBtn.Tag = new Square(i, j, board[z]);
-                    pnt = new Point(currentWidth, currentHeight );
+                    pnt = new Point(currentWidth, currentHeight);
                     newBtn.Location = pnt;
                     newBtn.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -309,11 +309,11 @@ namespace chessGraphics
 
                         matBoard[dstSquare.Row, dstSquare.Col].BackgroundImage = squareImage;
 
-                        bool isColBlack = srcSquare.Row % 2 == srcSquare.Col % 2;
-                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = isColBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
+                        bool isSrcBlack = srcSquare.Row % 2 == srcSquare.Col % 2;
+                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = isSrcBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
                         srcSquare.Type = '#'; //empty square
 
-                         matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.Blue;
+                        matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.Blue;
                         matBoard[dstSquare.Row, dstSquare.Col].FlatAppearance.BorderColor = Color.Blue;
                     
                     }
