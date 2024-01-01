@@ -66,8 +66,6 @@ public:
 	*/
 	int move(const Square& squFrom, const Square& squTo, const char myColor);
 
-	bool checkMate(const char kingColor);
-
 	void printBoard() const;
 
 

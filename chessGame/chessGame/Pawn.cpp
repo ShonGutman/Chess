@@ -16,7 +16,7 @@ std::vector<Square> Pawn::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 
 	if (_color == WHITE) //white pawn
 	{
-		if (_pos.getX() == 6) //first move can be two squares ahead
+		if (_pos.getX() == WHITE_FIRST_RANK) //first move can be two squares ahead
 		{
 			//x--
 			step = _pos;
@@ -49,7 +49,7 @@ std::vector<Square> Pawn::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 	}
 	else //black pawn
 	{
-		if (_pos.getX() == 1) //first move can be two squares ahead
+		if (_pos.getX() == BLACK_FIRST_RANK) //first move can be two squares ahead
 		{
 			//x++
 			step = _pos;
