@@ -3,8 +3,6 @@
 #include "Board.h"
 #include <ctype.h>
 
-constexpr int MOVE_STRING_LENGTH = 4;
-
 class Player
 {
 public:
@@ -14,7 +12,7 @@ public:
 	Board& getBoard() const;
 	bool getTurn() const;
 	void setTurn();
-	int play(std::string move);
+	int play(std::string& move);
 
 private:
 	char _color;

@@ -124,4 +124,52 @@ bool Square::checkSquare(const int x, const int y)
 	return true;
 }
 
+bool Square::getSqu(std::string& move, Square& squ)
+{
+	int cord[SQUARE_STRING_LENGTH] = {0,0};
+	if (move.length() != SQUARE_STRING_LENGTH)
+	{
+		throw GameException("Square string not in format!");
+	}
+	for (int i = 0; i < SQUARE_STRING_LENGTH; i++)
+	{
+		char temp = move[i];
+		if (isalpha(temp))
+		{
+			if (int(temp) >= int('a') && int(temp) <= int('h'))
+			{
+				cord[i] = int(temp) - int('a');
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else if (isdigit(temp))
+		{
+			if (int(temp) >= int('0') && int(temp) <= int(BOARD_SIZE + '0'))
+			{
+				cord[i] = int(BOARD_SIZE + '0') - int(temp);
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+	try
+	{
+		squ.setSquare(cord[1], cord[0]);
+	}
+	catch (GameException& e)
+	{
+		return false;
+	}
+	return true;
+}
+
 

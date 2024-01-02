@@ -5,6 +5,8 @@
 
 constexpr int BOARD_SIZE = 8;
 
+constexpr int SQUARE_STRING_LENGTH = 2;
+
 class Square
 {
 public:
@@ -73,9 +75,25 @@ public:
 	*/
 	bool operator==(const Square& other) const;
 
+	/*
+	* increase x by 1.
+	* @returns true\false increasing worked.
+	*/
 	bool IncX();
+	/*
+	* increase y by 1.
+	* @returns true\false increasing worked.
+	*/
 	bool IncY();
+	/*
+	* decrease x by 1.
+	* @returns true\false increasing worked.
+	*/
 	bool DecX();
+	/*
+	* decrease y by 1.
+	* @returns true\false increasing worked.
+	*/
 	bool DecY();
 
 	/*
@@ -86,6 +104,14 @@ public:
 	* @return true if valid. false if not
 	*/
 	static bool checkSquare(const int x, const int y);
+
+	/*
+	* turn a sring in the length of 2 into square
+	* @param move - string at size two reprecenting the square.
+	* @param squ - square set to square in string.
+	* @return true if square was valid. false if not.
+	*/
+	static bool getSqu(std::string& move, Square& squ);
 
 private:
 	int _x;

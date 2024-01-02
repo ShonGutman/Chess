@@ -93,6 +93,10 @@ int main()
 		msgToGraphics[0] = (char)(1 + '0');
 		msgToGraphics[1] = 0;
 		/******* JUST FOR EREZ DEBUGGING ******/
+
+		//msgFromGraphics = p.getMessageFromGraphics();
+		//string moves;
+
 		const char code[2] = { char('0' + chessGame.play(msgFromGraphics)) };
 		strcpy_s(msgToGraphics, code); // msgToGraphics should contain the result of the operation
 		// return result to graphics		

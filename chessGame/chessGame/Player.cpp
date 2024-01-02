@@ -51,53 +51,17 @@ void Player::setTurn()
 	}
 }
 
-int Player::play(std::string move)
+int Player::play(std::string& move)
 {
-	int cord[MOVE_STRING_LENGTH] = {0,0,0,0};
-	if (move.length() != MOVE_STRING_LENGTH)
-	{
-		throw GameException("Move string not in format!");
-	}
-	for (int i = 0; i < MOVE_STRING_LENGTH; i++)
-	{
-		char temp = move[i];
-		if (isalpha(temp))
-		{
-			if (int(temp) >= int('a') && int(temp) <= int('h'))
-			{
-				cord[i] = int(temp) - int('a');
-			}
-			else
-			{
-				return OUT_OF_BOARD;
-			}
-		}
-		else if (isdigit(temp))
-		{
-			if (int(temp) >= int('0') && int(temp) <= int(BOARD_SIZE + '0'))
-			{
-				cord[i] = int(BOARD_SIZE + '0') - int(temp);
-			}
-			else
-			{
-				return OUT_OF_BOARD;
-			}
-		}
-		else
-		{
-			return OUT_OF_BOARD;
-		}
-	}
 	Square squFrom;
 	Square squTo;
-	try
-	{
-		squFrom.setSquare(cord[1], cord[0]);
-		squTo.setSquare(cord[3], cord[2]);
-	}
-	catch (GameException& e)
+	std::string move1 = move.substr(0, SQUARE_STRING_LENGTH);
+	std::string move2 = move.substr(SQUARE_STRING_LENGTH, SQUARE_STRING_LENGTH);
+	if (!Square::getSqu(move1, squFrom) || !Square::getSqu(move2, squTo))
 	{
 		return OUT_OF_BOARD;
 	}
+	move1.clear();
+	move2.clear();
 	return _chessBoard->move(squFrom, squTo, _color);
 }

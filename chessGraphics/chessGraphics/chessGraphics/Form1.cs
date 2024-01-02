@@ -213,6 +213,7 @@ namespace chessGraphics
             else
             {
                 srcSquare = (Square)b.Tag;
+                //add message to backend
                 matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.DarkGreen;
             }
          
