@@ -66,6 +66,9 @@ public:
 	*/
 	int move(const Square& squFrom, const Square& squTo, const char myColor);
 
+	/*
+	* print the board for the user
+	*/
 	void printBoard() const;
 
 	/*

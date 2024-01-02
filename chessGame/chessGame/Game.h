@@ -32,7 +32,10 @@ public:
 	*/
 	int play(std::string move);
 
-	void printGameBoard();
+	/*
+	* print the board to user
+	*/
+	void printGameBoard()const ;
 
 	/*
 	* get piece at given square

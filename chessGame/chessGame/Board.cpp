@@ -13,17 +13,6 @@ Board::Board()
 
 	this->setAllMoves();
 
-	/*
-	*			   "rnbqkbnr"
-				   "pppppppp"
-				   "########"
-				   "########"
-				   "########"
-				   "########"
-				   "PPPPPPPP"
-				   "RNBQKBNR"
-	*/
-
 }
 
 Board::~Board()

@@ -46,7 +46,7 @@ int Game::play(std::string move)
 	return code;
 }
 
-void Game::printGameBoard()
+void Game::printGameBoard() const
 {
 	_chessBoard->printBoard();
 }

@@ -129,6 +129,10 @@ public:
 	*/
 	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) = 0;
 	
+	/*
+	* convert possible moves vector to a string
+	* @return a string of all posible moves
+	*/
 	std::string movesToString() const;
 
 protected:
