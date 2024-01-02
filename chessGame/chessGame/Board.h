@@ -22,7 +22,7 @@ enum CODES {
 	OUT_OF_BOARD, 
 	ILLIGAL_MOVE, 
 	SAME_SQUARE,
-	CHECK_MATE
+	CHECK_MATE,
 };
 
 class Board
@@ -120,4 +120,12 @@ private:
 	* @param kingColor - the color of the requested king
 	*/
 	bool isInCheck(const char kingColor) const;
+
+	/*
+	* check if pawn can Promote and scan promoted Piece
+	* 
+	* @param pawnSqu - the square of the pawn
+	* @return true if promoted. false if not
+	*/
+	bool promotion(Square pawnSqu);
 };

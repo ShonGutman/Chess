@@ -5,6 +5,14 @@
 constexpr int BLACK_FIRST_RANK = 1;
 constexpr int WHITE_FIRST_RANK = 6;
 
+enum PROMOTION_OPTIONS
+{
+    QUEEN_PROMOTE = 0,
+    ROOK_PROMOTE,
+    BISHOP_PROMOTE,
+    KNIGHT_PROMOTE
+};
+
 class Pawn : public Piece
 {
 public:

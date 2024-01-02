@@ -176,6 +176,7 @@ int Board::move(const Square& squFrom, const Square& squTo, const char myColor)
 		}
 	}
 
+	promotion(squTo);
 	//move is legal, remove what has been on target square
 	delete toTemp;
 	this->setAllMoves();
@@ -216,6 +217,53 @@ bool Board::isInCheck(const char kingColor) const
 			}
 		}
 	}
+	return false;
+}
+
+bool Board::promotion(Square pawnSqu)
+{
+	//Pawn is promoting
+	if (this->_chessBoard[pawnSqu.getX()][pawnSqu.getY()]->getType() == PAWN
+		&& (pawnSqu.getX() == 0 || pawnSqu.getX() == BOARD_SIZE - 1))
+	{
+		int choice = -1;
+		Piece* tempPawn = this->_chessBoard[pawnSqu.getX()][pawnSqu.getY()];
+
+		std::cout << "Which piece to promote to: 1 - Queen. 2 - Rook. 3 - Bishop. 4 - Knight" << std::endl;
+		std::cin >> choice;
+
+		if (QUEEN_PROMOTE == choice)
+		{
+			this->_chessBoard[pawnSqu.getX()][pawnSqu.getY()] = new Queen(tempPawn->getColor(), pawnSqu);
+			delete tempPawn;
+		}
+
+		else if(ROOK_PROMOTE == choice)
+		{
+			this->_chessBoard[pawnSqu.getX()][pawnSqu.getY()] = new Rook(tempPawn->getColor(), pawnSqu);
+			delete tempPawn;
+		}
+
+		else if (BISHOP_PROMOTE == choice)
+		{
+			this->_chessBoard[pawnSqu.getX()][pawnSqu.getY()] = new Bishop(tempPawn->getColor(), pawnSqu);
+			delete tempPawn;
+		}
+
+		else if(KNIGHT_PROMOTE == choice)
+		{
+			this->_chessBoard[pawnSqu.getX()][pawnSqu.getY()] = new Knight(tempPawn->getColor(), pawnSqu);
+			delete tempPawn;
+		}
+
+		else
+		{
+			throw GameException("You have promoted to unknown Piece. well done!");
+		}
+
+		return true;
+	}
+
 	return false;
 }
 

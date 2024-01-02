@@ -1,3 +1,11 @@
-White played: d2d4
+White played: e2e4
 Black Played: d7d5
-Game ended.
+White played: e4d5
+Black Played: c7c6
+White played: d5c6
+Black Played: c8e6
+White played: c6b7
+Black Played: d8c7
+White played: b7a8
+Black Played: f7f6
+White played: a8c7
