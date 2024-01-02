@@ -99,13 +99,13 @@ void Piece::setPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE])
 	this->_possibleMoves = this->findNewPossibleMoves(chessBoard);
 }
 
-const std::string& Piece::movesToString() const
+std::string Piece::movesToString() const
 {
-	std::string moves;
+	std::string moves = "";
 	for (int i = 0; i < _possibleMoves.size(); i++)
 	{
-		moves += _possibleMoves[i].getX();
-		moves += _possibleMoves[i].getY();
+		moves += (_possibleMoves[i].getY() + 'a');
+		moves += ((8 - _possibleMoves[i].getX()) + '0');
 	}
 	return moves;
 }

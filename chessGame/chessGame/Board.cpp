@@ -266,3 +266,8 @@ void Board::printBoard() const
 	}
 	std::cout << std::endl;
 }
+
+Piece* Board::getPiece(Square& squ) const
+{
+	return _chessBoard[squ.getX()][squ.getY()];
+}

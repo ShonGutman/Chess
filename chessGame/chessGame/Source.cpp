@@ -94,9 +94,18 @@ int main()
 		msgToGraphics[1] = 0;
 		/******* JUST FOR EREZ DEBUGGING ******/
 
-		//msgFromGraphics = p.getMessageFromGraphics();
-		//string moves;
+		while (msgFromGraphics.length() == SQUARE_STRING_LENGTH)
+		{
+			Square clickedSqu;
+			Square::getSqu(msgFromGraphics, clickedSqu);
+			string moves = "";
+			moves = chessGame.Game::getPiece(clickedSqu)->movesToString();
 
+			strcpy_s(msgToGraphics, moves.c_str());
+			p.sendMessageToGraphics(msgToGraphics);
+
+			msgFromGraphics = p.getMessageFromGraphics();
+		}
 		const char code[2] = { char('0' + chessGame.play(msgFromGraphics)) };
 		strcpy_s(msgToGraphics, code); // msgToGraphics should contain the result of the operation
 		// return result to graphics		

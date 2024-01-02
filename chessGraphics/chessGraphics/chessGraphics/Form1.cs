@@ -15,6 +15,7 @@ namespace chessGraphics
     {
         private Square srcSquare;
         private Square dstSquare;
+        private string possibleMoves;
 
         private pipe enginePipe;
         Button[,] matBoard;
@@ -192,6 +193,10 @@ namespace chessGraphics
             Button b = (Button)sender;
             if (srcSquare != null)
             {
+                for (int i = 0; i < possibleMoves.Length; i += 2)
+                {
+                    matBoard[(int)(8 - (possibleMoves[i + 1] - '0')), (int)(possibleMoves[i] - 'a')].FlatAppearance.BorderColor = Color.Blue;
+                }
                 // unselected
                 if (matBoard[srcSquare.Row, srcSquare.Col] == b)
                 {
@@ -214,6 +219,8 @@ namespace chessGraphics
             {
                 srcSquare = (Square)b.Tag;
                 //add message to backend
+                Thread t = new Thread(getPossibleMoves);
+                t.Start();
                 matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.DarkGreen;
             }
          
@@ -245,9 +252,51 @@ namespace chessGraphics
 
             return messages[res];
         }
-        
 
 
+        void getPossibleMoves()
+        {
+            if (isGameOver)
+                return;
+
+
+            try
+            {
+                Invoke((MethodInvoker)delegate {
+
+                    // should send pipe to engine
+                    enginePipe.sendEngineMove(srcSquare.ToString());
+
+
+                    // should get pipe from engine
+                    string m = enginePipe.getEngineMessage();
+
+                    if (!enginePipe.isConnected())
+                    {
+                        MessageBox.Show("Connection to engine has lost. Bye bye.");
+                        this.Close();
+                        return;
+                    }
+
+                    possibleMoves = m;
+
+                    for(int i = 0; i < possibleMoves.Length;i+=2)
+                    {
+                        matBoard[(int)(8 - (possibleMoves[i + 1] - '0')), (int)(possibleMoves[i] - 'a')].FlatAppearance.BorderColor = Color.DarkGreen;
+                        //matBoard[(int)(possibleMoves[i] - 'a'), (int)(possibleMoves[i + 1] - '0')].Refresh();
+                    }
+
+                    this.Refresh();
+                });
+
+
+            }
+            catch
+            {
+
+            }
+
+        }
         void playMove()
         {
             if (isGameOver)

@@ -50,3 +50,8 @@ void Game::printGameBoard()
 {
 	_chessBoard->printBoard();
 }
+
+Piece* Game::getPiece(Square& squ) const
+{
+	return _chessBoard->getPiece(squ);
+}

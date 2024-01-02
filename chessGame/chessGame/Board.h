@@ -68,7 +68,12 @@ public:
 
 	void printBoard() const;
 
-
+	/*
+	* get piece at given square
+	* @param squ - square of wanted piece
+	* @returns wanted piece
+	*/
+	Piece* getPiece(Square& squ) const;
 
 private:
 	Piece* _chessBoard[BOARD_SIZE][BOARD_SIZE];

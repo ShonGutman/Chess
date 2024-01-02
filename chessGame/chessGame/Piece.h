@@ -129,7 +129,7 @@ public:
 	*/
 	virtual std::vector<Square> findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOARD_SIZE]) = 0;
 	
-	const std::string& movesToString() const;
+	std::string movesToString() const;
 
 protected:
 	char _color;

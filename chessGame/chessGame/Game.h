@@ -34,6 +34,13 @@ public:
 
 	void printGameBoard();
 
+	/*
+	* get piece at given square
+	* @param squ - square of wanted piece
+	* @returns wanted piece
+	*/
+	Piece* getPiece(Square& squ) const;
+
 private:
 	Player* _playerW;
 	Player* _playerB;
