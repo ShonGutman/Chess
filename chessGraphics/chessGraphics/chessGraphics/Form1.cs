@@ -153,7 +153,7 @@ namespace chessGraphics
                     newBtn.Location = pnt;
                     newBtn.BackgroundImageLayout = ImageLayout.Stretch;
 
-                    Image squareImage = isColBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
+                    Image squareImage = isColBlack ? Properties.Resources.s_white : Properties.Resources.s_black;
                     Image pieceImage  = getImageBySign(board[z]);
 
                     if(pieceImage != null) //if piece is empty no need to draw more
@@ -222,10 +222,10 @@ namespace chessGraphics
         // index is the message number in the protocol
         string[] messages =  {
             "Valid move",
-            "Valid move - you made chess",
+            "Valid move - you made check",
             "Invalid move - not your player",
             "Invalid move - destination is not free",
-            "Invalid move - chess wil occure",
+            "Invalid move - check wil occure",
             "Invalid move - out of bounds",
             "Invalid move - illegeal movement with piece",
             "Invalid move - source and dest are equal",
@@ -296,7 +296,7 @@ namespace chessGraphics
 
                         bool isDstBlack = dstSquare.Row % 2 == dstSquare.Col % 2;
                         dstSquare.Type = srcSquare.Type;
-                        Image squareImage = isDstBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
+                        Image squareImage = isDstBlack ? Properties.Resources.s_white : Properties.Resources.s_black;
                         Image pieceImage = getImageBySign(srcSquare.Type);
 
                         if (pieceImage != null) //if piece is empty no need to draw more
@@ -310,7 +310,7 @@ namespace chessGraphics
                         matBoard[dstSquare.Row, dstSquare.Col].BackgroundImage = squareImage;
 
                         bool isSrcBlack = srcSquare.Row % 2 == srcSquare.Col % 2;
-                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = isSrcBlack ? Properties.Resources.s_black : Properties.Resources.s_white;
+                        matBoard[srcSquare.Row, srcSquare.Col].BackgroundImage = isSrcBlack ? Properties.Resources.s_white : Properties.Resources.s_black;
                         srcSquare.Type = '#'; //empty square
 
                         matBoard[srcSquare.Row, srcSquare.Col].FlatAppearance.BorderColor = Color.Blue;
