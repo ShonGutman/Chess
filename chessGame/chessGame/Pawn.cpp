@@ -20,7 +20,7 @@ std::vector<Square> Pawn::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 		{
 			//x--
 			step = _pos;
-			if (step.DecX() && step.DecX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+			if (step.DecX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE && step.DecX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
 			{
 				tempPM.push_back(step);
 			}
@@ -53,7 +53,7 @@ std::vector<Square> Pawn::findNewPossibleMoves(Piece* chessBoard[BOARD_SIZE][BOA
 		{
 			//x++
 			step = _pos;
-			if (step.IncX() && step.IncX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
+			if (step.IncX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE && step.IncX() && chessBoard[step.getX()][step.getY()]->getColor() == EMPTY_SQUARE)
 			{
 				tempPM.push_back(step);
 			}
