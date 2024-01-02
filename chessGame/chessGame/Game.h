@@ -1,6 +1,7 @@
 #pragma once
 
-
+#include <iostream>
+#include <fstream>
 #include "Player.h"
 
 class Game
@@ -8,8 +9,10 @@ class Game
 public:
 	/*
 	* constructor for Game
+	* 
+	* @param filePath - path to a file which saves all moves
 	*/
-	Game();
+	Game(std::string filePath);
 
 	/*
 	* destructor for Game. frees memory allocated for Game.
@@ -44,8 +47,10 @@ public:
 	*/
 	Piece* getPiece(Square& squ) const;
 
+
 private:
 	Player* _playerW;
 	Player* _playerB;
 	Board* _chessBoard;
+	std::ofstream _file;
 };

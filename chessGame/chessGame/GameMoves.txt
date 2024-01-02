@@ -1,0 +1,3 @@
+White played: d2d4
+Black Played: d7d5
+Game ended.

@@ -45,7 +45,7 @@ int main()
 
 	Pipe p;
 	bool isConnect = p.connect();
-	Game chessGame;
+	Game chessGame("GameMoves.txt");
 	
 	string ans;
 	while (!isConnect)
