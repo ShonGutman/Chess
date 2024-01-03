@@ -1,15 +1,3 @@
 White played: a2a4
-Black Played: a7a5
-White played: b2b4
-Black Played: a5b4
-White played: a4a5
-Black Played: a8a6
-White played: b1a3
-Black Played: a6b6
-White played: a5a6
-Black Played: b6c6
-White played: a6a7
-Black Played: c6b6
-White played: a7a8
-Black Played: b6c6
+Black Played: b7b6
 Game ended
